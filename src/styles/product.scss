@@ -1,0 +1,41 @@
+@import "_variables";
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.product-title {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.product-content-area {
+  width: 330px;
+  padding: 20px 0;
+}
+
+.product-area {
+  background-color: #efefef;
+
+  .pro-img {
+    width: 100%;
+    height: 185px;
+  }
+}
+
+.product-button-area {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+
+  .product-button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: $primary-color;
+    color: #ffffff;
+  }
+}
