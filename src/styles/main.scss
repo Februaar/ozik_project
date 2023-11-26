@@ -1,8 +1,33 @@
 @import "_variables";
 
-.main-explan {
+.main-top-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 3px;
+  // justify-content: center;
+  align-items: center;
+  justify-items: center;
   margin: 30px 0;
-  text-align: center;
+}
+
+.main-explan {
+}
+
+.main-login-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  justify-items: center;
+  padding-top: 3px;
+}
+
+.main-member-img {
+  border-radius: 100%;
+  // padding-top: 3px;
+}
+
+.main-member-nickname {
+  // padding-top: 3px;
 }
 
 .main-car-container {
@@ -32,7 +57,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   max-width: $container-max-width;
-  margin-top: 16px;
+  margin-top: 8px;
   padding: 12px;
 
   .main-pro-img {
