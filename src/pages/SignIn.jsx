@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase-config";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import "../styles/signin.scss";
 
 function SignInPage() {
@@ -10,6 +12,17 @@ function SignInPage() {
 
   const handleSignupClick = () => {
     navigate("/signup");
+  };
+
+  const handleGoogleLogin = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -40,6 +53,9 @@ function SignInPage() {
         <div className="signin-button-area">
           <button className="signin-button">로그인</button>
           <button onClick={handleSignupClick}>회원가입</button>
+          <button onClick={handleGoogleLogin} className="signin-button">
+            구글 로그인
+          </button>
         </div>
       </div>
     </>

@@ -1,8 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Routes, Route, useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext";
 import "../styles/main.scss";
-import { member, starbucks } from "../img/index";
+import { member, profile, starbucks } from "../img/index";
+import Products from "../components/Products";
 
 function MainPage() {
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   const handleSigninClick = () => {
@@ -16,41 +19,54 @@ function MainPage() {
   return (
     <>
       <div className="main-top-container">
-        <h2 className="main-explan">WELCOME</h2>
-        <div className="main-login-info">
-          <button onClick={handleMyPageClick}>
-            <img src={member} className="main-member-img" />
-          </button>
-          <button className="main-member-nickname">경진님</button>
-        </div>
-        {/* <h2 className="main-explan">반가워요</h2>
-        <div className="main-login-info">
-          <button onClick={handleSigninClick}>
-            <img src={member} className="main-member-img" />
-          </button>
-          <button className="main-member-nickname">로그인</button>
-        </div> */}
+        {user ? (
+          <>
+            <h2 className="main-explan">WELCOME</h2>
+            <div className="main-login-info">
+              <button
+                onClick={handleMyPageClick}
+                className="main-member-profile"
+              >
+                <img
+                  src={user ? user.photoURL : profile}
+                  className="main-member-img"
+                />
+              </button>
+              <button className="main-member-nickname">
+                {user.displayName}님
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <h2 className="main-explan">반가워요</h2>
+            <div className="main-login-info">
+              <button
+                onClick={handleSigninClick}
+                className="main-member-profile"
+              >
+                <img src={member} width={24} height={24} />
+              </button>
+              <button className="main-member-nickname">로그인</button>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="main-car-container">
         <img src={starbucks} className="main-car-img" />
       </div>
       <nav className="main-nav-container">
-        <div>전체</div>
-        <div>내가 자주 구매하는</div>
-        <div>연령별 인기</div>
+        <Link to="/products">전체</Link>
+        <Link to="/all">내가 자주 구매하는</Link>
+        <Link to="/best">연령별 인기</Link>
       </nav>
-
-      <div className="main-product-container">
-        <Link to="/product">
-          <img src={starbucks} className="main-pro-img" />
-        </Link>
-        <img src={starbucks} className="main-pro-img" />
-        <img src={starbucks} className="main-pro-img" />
-        <img src={starbucks} className="main-pro-img" />
-        <img src={starbucks} className="main-pro-img" />
-        <img src={starbucks} className="main-pro-img" />
-      </div>
+      <Routes>
+        <Route path="/" element={<Products />} />
+        <Route path="products" element={<Products />} />
+        <Route path="all" element={<Products />} />
+        <Route path="best" element={<Products />} />
+      </Routes>
     </>
   );
 }

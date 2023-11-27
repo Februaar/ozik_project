@@ -4,10 +4,10 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   gap: 3px;
-  // justify-content: center;
   align-items: center;
   justify-items: center;
   margin: 30px 0;
+  height: 80px;
 }
 
 .main-explan {
@@ -15,25 +15,29 @@
 
 .main-login-info {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 0.5fr 2fr;
   justify-content: center;
   justify-items: center;
   padding-top: 3px;
 }
 
+.main-member-profile {
+  display: grid;
+}
+
 .main-member-img {
   border-radius: 100%;
-  // padding-top: 3px;
+  width: 36px;
+  height: 36px;
 }
 
 .main-member-nickname {
-  // padding-top: 3px;
+  padding-left: 10px;
 }
 
 .main-car-container {
-  max-width: $container-max-width;
-  height: 165px;
   background-color: $primary-color;
+  height: 165px;
   // background-color: rgb(230, 208, 208);
 
   .main-car-img {
@@ -49,14 +53,12 @@
   gap: 10px;
   margin-top: 20px;
   padding: 0 16px;
-  max-width: $container-max-width;
 }
 
 .main-product-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  max-width: $container-max-width;
   margin-top: 8px;
   padding: 12px;
 
