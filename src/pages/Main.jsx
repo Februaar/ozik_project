@@ -9,27 +9,27 @@ function MainPage() {
     navigate("/signin");
   };
 
-  // const handleMyPageClick = () => {
-  //   navigate("/my");
-  // };
+  const handleMyPageClick = () => {
+    navigate("/my");
+  };
 
   return (
     <>
       <div className="main-top-container">
-        {/* <h2 className="main-explan">WELCOME</h2>
+        <h2 className="main-explan">WELCOME</h2>
         <div className="main-login-info">
           <button onClick={handleMyPageClick}>
             <img src={member} className="main-member-img" />
           </button>
           <button className="main-member-nickname">경진님</button>
-        </div> */}
-        <h2 className="main-explan">반가워요</h2>
+        </div>
+        {/* <h2 className="main-explan">반가워요</h2>
         <div className="main-login-info">
           <button onClick={handleSigninClick}>
             <img src={member} className="main-member-img" />
           </button>
           <button className="main-member-nickname">로그인</button>
-        </div>
+        </div> */}
       </div>
 
       <div className="main-car-container">

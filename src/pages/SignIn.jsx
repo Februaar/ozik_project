@@ -4,13 +4,22 @@ import "../styles/signin.scss";
 function SignInPage() {
   const navigate = useNavigate();
 
+  const handleMainClick = () => {
+    navigate("/");
+  };
+
   const handleSignupClick = () => {
     navigate("/signup");
   };
 
   return (
     <>
-      <div className="signin-title">로그인</div>
+      <div className="signin-header">
+        <span onClick={handleMainClick} className="signin-title">
+          OZIK
+        </span>
+        <span className="signin-title">나를 위한 시간</span>
+      </div>
       <div className="signin-container">
         <div className="signin-input-area">
           <div className="signin-input-content">
@@ -30,7 +39,7 @@ function SignInPage() {
         </div>
         <div className="signin-button-area">
           <button className="signin-button">로그인</button>
-          <button onClick={handleSignupClick}>가입하기</button>
+          <button onClick={handleSignupClick}>회원가입</button>
         </div>
       </div>
     </>

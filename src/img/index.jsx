@@ -3,7 +3,10 @@ import member from "./icon/member-icon.svg";
 import search from "./icon/search-icon.svg";
 import close from "./icon/close-icon.svg";
 import cancel from "./icon/cancel-icon.svg";
+import remove from "./icon/remove-icon.svg";
+import add from "./icon/add-icon.svg";
 
+import profile from "./no-profile.jpg";
 import starbucks from "./starbucks-house-blend.svg";
 
-export { menu, member, search, close, cancel, starbucks };
+export { menu, member, search, close, cancel, remove, add, profile, starbucks };
