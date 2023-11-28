@@ -3,8 +3,8 @@ import { menu, search } from "../img/index";
 
 import { Link, useLocation } from "react-router-dom";
 import { auth } from "../../firebase-config";
-import { signOut } from "firebase/auth";
 import { useAuth } from "../AuthContext";
+import { signOut } from "firebase/auth";
 
 function Header() {
   const { user } = useAuth();
@@ -14,7 +14,7 @@ function Header() {
     return null;
   }
 
-  const handleGoogleLogout = () => {
+  const handleLogout = () => {
     signOut(auth)
       .then(() => {
         console.log("로그아웃 성공");
@@ -30,7 +30,7 @@ function Header() {
         OZIK
       </Link>
       <div className="header-icon-container">
-        <span onClick={handleGoogleLogout} className="header-login-icon">
+        <span onClick={handleLogout} className="header-login-icon">
           {user ? "로그아웃" : ""}
         </span>
         <Link to="/search" className="header-search-icon">
