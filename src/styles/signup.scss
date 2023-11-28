@@ -32,12 +32,6 @@
   grid-template-rows: 1fr 2fr;
 }
 
-.signup-input-password {
-  width: 100%;
-  display: grid;
-  grid-template-rows: 1fr 2fr;
-}
-
 .signup-content-title {
   font-size: 18px;
 }
@@ -45,6 +39,14 @@
 .signup-input {
   height: 40px;
   font-size: 14px;
+  font-family: "BMHANNA_11yrs";
+}
+
+.signup-input-password {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  font-family: "BMHANNA_11yrs";
 }
 
 .signup-input::placeholder {

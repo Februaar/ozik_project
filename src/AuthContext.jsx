@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { auth } from "../firebase-config";
+import { saveUserInfoToFirestore } from "../firebase-auth";
 
 const AuthContext = createContext();
 
@@ -15,6 +16,14 @@ export const AuthProvider = ({ children }) => {
       if (authUser) {
         // 로그인한 경우
         setUser(authUser);
+
+        // Firestore에 사용자 정보 저장
+        saveUserInfoToFirestore(
+          authUser.uid,
+          authUser.email,
+          authUser.displayName,
+          authUser.photoURL
+        );
       } else {
         // 로그아웃한 경우
         setUser(null);

@@ -1,7 +1,8 @@
-import { Link, Routes, Route, useNavigate } from "react-router-dom";
-import { useAuth } from "../AuthContext";
 import "../styles/main.scss";
 import { member, profile, starbucks } from "../img/index";
+
+import { Link, Routes, Route, useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext";
 import Products from "../components/Products";
 
 function MainPage() {
@@ -28,12 +29,12 @@ function MainPage() {
                 className="main-member-profile"
               >
                 <img
-                  src={user ? user.photoURL : profile}
+                  src={user.photoURL ? user.photoURL : profile}
                   className="main-member-img"
                 />
               </button>
               <button className="main-member-nickname">
-                {user.displayName}님
+                {user.displayName ? user.displayName : "사용자"} 님
               </button>
             </div>
           </>

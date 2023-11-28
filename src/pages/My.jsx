@@ -16,7 +16,7 @@ function MyPage() {
         <>
           <div className="my-profile-container">
             <img
-              src={user ? user.photoURL : profile}
+              src={user.photoURL ? user.photoURL : profile}
               className="my-profile-img"
             />
             <span className="my-nick">{user.displayName}</span>
