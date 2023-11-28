@@ -3,6 +3,7 @@ import { member, profile, starbucks } from "../img/index";
 
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
+import All from "../components/All";
 import Products from "../components/Products";
 
 function MainPage() {
@@ -65,7 +66,7 @@ function MainPage() {
       <Routes>
         <Route path="/" element={<Products />} />
         <Route path="products" element={<Products />} />
-        <Route path="all" element={<Products />} />
+        <Route path="all" element={<All />} />
         <Route path="best" element={<Products />} />
       </Routes>
     </>

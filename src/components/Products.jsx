@@ -1,9 +1,13 @@
 import { starbucks } from "../img/index";
 
+import { Link } from "react-router-dom";
+
 function Products() {
   return (
     <div className="main-product-container">
-      <img src={starbucks} className="main-pro-img" />
+      <Link to="/product">
+        <img src={starbucks} className="main-pro-img" />
+      </Link>
       <img src={starbucks} className="main-pro-img" />
       <img src={starbucks} className="main-pro-img" />
       <img src={starbucks} className="main-pro-img" />
