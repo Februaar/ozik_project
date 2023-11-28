@@ -5,6 +5,8 @@
 
 #root {
   font-family: "BMHANNA_11yrs", sans-serif;
+  min-width: 430px;
+  min-height: 932px;
   max-width: 1280px;
   margin: 0 auto;
   font: inherit;
@@ -23,6 +25,8 @@ a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+  padding: 0;
+  margin: 0;
 }
 
 h2 {
