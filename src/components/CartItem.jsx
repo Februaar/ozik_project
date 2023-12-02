@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { add, remove, starbucks } from "../img/index";
+import { add, remove } from "../img/index";
 
 function CartItem() {
   const [quantity, setQuantity] = useState(1);
@@ -19,7 +19,7 @@ function CartItem() {
       <p className="my-nav-title">장바구니 내역</p>
       <div className="my-cart-container">
         <div className="my-cart-item">
-          <img src={starbucks} className="my-cart-img" />
+          {/* <img src={starbucks} className="my-cart-img" /> */}
           <div className="my-cart-quantity">
             <button onClick={decrease}>
               <img src={remove} width={18} height={18} />

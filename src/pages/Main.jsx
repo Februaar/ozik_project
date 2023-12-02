@@ -1,10 +1,10 @@
 import "../styles/main.scss";
-import { member, profile, starbucks } from "../img/index";
+import { member, profile } from "../img/index";
 
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
-import All from "../components/All";
 import Products from "../components/Products";
+import MainCarousel from "../components/MainCarousel";
 
 function MainPage() {
   const { user } = useAuth();
@@ -49,25 +49,24 @@ function MainPage() {
               >
                 <img src={member} width={24} height={24} />
               </button>
-              <button className="main-member-nickname">로그인</button>
+              <span className="main-member-nickname">로그인</span>
             </div>
           </>
         )}
       </div>
 
-      <div className="main-car-container">
-        <img src={starbucks} className="main-car-img" />
-      </div>
+      <MainCarousel />
       <nav className="main-nav-container">
-        <Link to="/products">전체</Link>
-        <Link to="/all">내가 자주 구매하는</Link>
+        <Link to="/all">전체</Link>
+        <Link to="/daily">내가 자주 구매하는</Link>
         <Link to="/best">연령별 인기</Link>
       </nav>
       <Routes>
-        <Route path="/" element={<Products />} />
-        <Route path="products" element={<Products />} />
-        <Route path="all" element={<All />} />
-        <Route path="best" element={<Products />} />
+        <Route path="/" element={<Products />}>
+          <Route path="all" element={<Products iconCondition="all" />} />
+          <Route path="daily" element={<Products iconCondition="daily" />} />
+          <Route path="best" element={<Products iconCondition="best" />} />
+        </Route>
       </Routes>
     </>
   );
