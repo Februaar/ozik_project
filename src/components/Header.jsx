@@ -36,7 +36,9 @@ function Header() {
         <Link to="/search" className="header-search-icon">
           <img src={search} alt="Search" />
         </Link>
-        <img src={menu} alt="Menu"></img>
+        <Link to="/product" className="header-category-icon">
+          <img src={menu} alt="Menu"></img>
+        </Link>
       </div>
     </section>
   );

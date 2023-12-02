@@ -7,18 +7,5 @@ import remove from "./icon/remove-icon.svg";
 import add from "./icon/add-icon.svg";
 
 import profile from "./no-profile.jpg";
-import maratang from "./maratang.jpg";
-import starbucks from "./starbucks-house-blend.svg";
 
-export {
-  menu,
-  member,
-  search,
-  close,
-  cancel,
-  remove,
-  add,
-  profile,
-  maratang,
-  starbucks,
-};
+export { menu, member, search, close, cancel, remove, add, profile };

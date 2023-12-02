@@ -1,0 +1,69 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "brand": "Illy",
+      "name": "일리 커피",
+      "price": 19000,
+      "image": "/img/illy-capsule.jpg"
+    },
+    {
+      "id": 2,
+      "brand": "Nescafe",
+      "name": "네스카페 캡슐 커피",
+      "price": 18000,
+      "image": "/img/nescafe-capsule.jpg"
+    },
+    {
+      "id": 3,
+      "brand": "Nespresso",
+      "name": "네스프레소 캡슐 커피",
+      "price": 21000,
+      "image": "/img/nespresso-capsule.jpg"
+    },
+    {
+      "id": 4,
+      "brand": "Starbucks",
+      "name": "스타벅스 캡슐 커피",
+      "price": 18000,
+      "image": "/img/starbucks-capsule.jpg"
+    },
+    {
+      "id": 5,
+      "brand": "Milka",
+      "name": "밀카 초콜렛 (5개입)",
+      "price": 23000,
+      "image": "/img/milka.jpg"
+    },
+    {
+      "id": 6,
+      "brand": "Schogetten",
+      "name": "쇼게텐 초콜렛",
+      "price": 3000,
+      "image": "/img/schogetten-chocolate.jpg"
+    }
+  ],
+  "carousel": [
+    {
+      "id": 1,
+      "brand": "Starbucks",
+      "name": "스타벅스 커피",
+      "price": 12000,
+      "image": "/img/starbucks-house-blend.svg"
+    },
+    {
+      "id": 2,
+      "brand": "Pepsi",
+      "name": "펩시 콜라",
+      "price": 19000,
+      "image": "/img/pepsi.jpg"
+    },
+    {
+      "id": 3,
+      "brand": "Rip van",
+      "name": "립반 와플",
+      "price": 23000,
+      "image": "/img/waffle.jpg"
+    }
+  ]
+}
