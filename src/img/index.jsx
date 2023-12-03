@@ -5,7 +5,20 @@ import close from "./icon/close-icon.svg";
 import cancel from "./icon/cancel-icon.svg";
 import remove from "./icon/remove-icon.svg";
 import add from "./icon/add-icon.svg";
+import chevronLeft from "./icon/chevron-left-icon.svg";
+import chevronRight from "./icon/chevron-right-icon.svg";
 
 import profile from "./no-profile.jpg";
 
-export { menu, member, search, close, cancel, remove, add, profile };
+export {
+  menu,
+  member,
+  search,
+  close,
+  cancel,
+  remove,
+  add,
+  chevronLeft,
+  chevronRight,
+  profile,
+};
