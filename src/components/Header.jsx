@@ -1,4 +1,4 @@
-import "../styles/header.scss";
+import "../styles/main.scss";
 import { menu, search } from "../img/index";
 
 import { Link, useLocation } from "react-router-dom";
@@ -29,14 +29,14 @@ function Header() {
       <Link to="/" className="logo">
         OZIK
       </Link>
-      <div className="header-icon-container">
-        <span onClick={handleLogout} className="header-login-icon">
+      <div className="icon-container">
+        <span onClick={handleLogout} className="login-icon">
           {user ? "로그아웃" : ""}
         </span>
-        <Link to="/search" className="header-search-icon">
+        <Link to="/search" className="search-icon">
           <img src={search} alt="Search" />
         </Link>
-        <Link to="/product" className="header-category-icon">
+        <Link to="/product" className="category-icon">
           <img src={menu} alt="Menu"></img>
         </Link>
       </div>
