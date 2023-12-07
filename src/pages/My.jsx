@@ -1,11 +1,11 @@
 import { Link, Routes, Route } from "react-router-dom";
-import { useAuth } from "../../AuthContext";
-import "../../styles/my.scss";
-import { profile } from "../../img/index";
-import SignIn from "../signin";
-import MyProfile from "../../components/MyProfile";
-import PurchaseList from "../../components/PurchaseList";
-import CartItem from "../../components/CartItem";
+import { useAuth } from "../AuthContext";
+import "../styles/my.scss";
+import { profile } from "../img/index";
+import SignIn from "./SignIn";
+import MyProfile from "../components/MyProfile";
+import PurchaseList from "../components/PurchaseList";
+import CartItem from "../components/CartItem";
 
 function MyPage() {
   const { user } = useAuth();

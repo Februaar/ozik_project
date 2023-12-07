@@ -1,8 +1,8 @@
-import "../../styles/signup.scss";
+import "../styles/signup.scss";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../../firebase-config";
+import { auth } from "../../firebase-config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 function SignUpPage() {

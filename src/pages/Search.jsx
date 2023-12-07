@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import "../../styles/search.scss";
-import { close, cancel } from "../../img/index";
+import "../styles/search.scss";
+import { close, cancel } from "../img/index";
 
 function SearchPage() {
   const navigate = useNavigate();
@@ -16,8 +16,8 @@ function SearchPage() {
           <input className="search-input" />
           <img src={cancel} className="delete" alt="Cancel" />
         </div>
-        <div className="saerch-value-area">
-          <div className="search-hisotry">
+        <div className="search-value-area">
+          <div className="search-history">
             <span className="title">최근 검색어</span>
             <div className="value-container">
               <span className="value">스타벅스</span>

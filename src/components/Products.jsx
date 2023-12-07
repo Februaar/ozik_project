@@ -4,7 +4,6 @@ import ProductItem from "../components/ProductItem";
 
 function Products() {
   const [products, setProducts] = useState([]);
-  console.log(products);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
