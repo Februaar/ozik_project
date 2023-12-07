@@ -1,5 +1,3 @@
-import "../styles/product.scss";
-
 import PropTypes from "prop-types";
 
 function ProductItem({ product }) {

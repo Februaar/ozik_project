@@ -113,18 +113,36 @@
 
     .recommend {
       position: absolute;
-      width: 100px;
-      height: 80px;
-      background-color: $gray-color;
+      left: 10%;
+      top: 40%;
+      display: grid;
+      color: #ffffff;
+      grid-template-rows: 2fr 1fr;
+      justify-items: start;
+      width: 140px;
+      height: 40px;
+
+      .brand {
+        font-size: 18px;
+        color: inherit;
+      }
+
+      .name {
+        font-size: 14px;
+        color: inherit;
+      }
     }
 
     .button {
       position: absolute;
-      right: 30px;
-      bottom: 15px;
-      background-color: $primary-color;
-      border-radius: 5px;
-      padding: 5px 10px;
+      left: 10%;
+      bottom: 10%;
+      color: #ffffff;
+      background-color: #000000;
+      border-radius: 0.3rem;
+      font-size: 14px;
+      width: 120px;
+      height: 32px;
     }
   }
 }
