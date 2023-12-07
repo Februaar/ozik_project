@@ -3,68 +3,68 @@
 .search-container {
   min-width: 430px;
   min-height: 800px;
-}
 
-.top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 44px;
-}
+  .search-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 44px;
 
-.search-input {
-  padding: 0 33px 0 12px;
-  margin: 10px;
-  width: 70%;
-  height: 33px;
-}
+    .search-input {
+      padding: 0 33px 0 12px;
+      margin: 10px;
+      width: 70%;
+      height: 33px;
+    }
 
-.delete {
-  position: absolute;
-  top: 60px;
-  right: 75px;
-  width: 18px;
-  height: 18px;
-}
+    .delete {
+      position: absolute;
+      top: 60px;
+      right: 75px;
+      width: 18px;
+      height: 18px;
+    }
+  }
 
-.content-area {
-  margin-top: 16px;
-}
+  .search-value-area {
+    margin-top: 16px;
 
-.search-value {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0 auto;
-  width: 70%;
-}
+    .search-history {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0 auto;
+      width: 70%;
 
-.value-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  gap: 8px;
-}
+      .value-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        gap: 8px;
 
-.value {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 33px;
-  padding: 7px 10px;
-  border-radius: 5px;
-  color: #ffffff;
-  background-color: $primary-color;
+        .value {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 80px;
+          height: 33px;
+          padding: 7px 10px;
+          border-radius: 5px;
+          color: #ffffff;
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
 }
 
 .close-button {
   position: absolute;
   top: 20px;
   right: 20px;
-}
 
-.close {
-  width: 20px;
-  height: 20px;
+  .close {
+    width: 20px;
+    height: 20px;
+  }
 }

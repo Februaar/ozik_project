@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 
-import MainPage from "./pages/Main";
-import SignUpPage from "./pages/SignUp";
-import SignInPage from "./pages/SignIn";
-import MyPage from "./pages/My";
-import SearchPage from "./pages/Search";
-import ProductPage from "./pages/Product";
+import MainPage from "./pages/main";
+import SignUpPage from "./pages/signup";
+import SignInPage from "./pages/signin";
+import MyPage from "./pages/my";
+import SearchPage from "./pages/search";
+import ProductPage from "./pages/product";
 
 function App() {
   return (

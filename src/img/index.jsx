@@ -9,6 +9,7 @@ import chevronLeft from "./icon/chevron-left-icon.svg";
 import chevronRight from "./icon/chevron-right-icon.svg";
 
 import profile from "./no-profile.jpg";
+import illyCapsule from "./illy-capsule.jpg";
 
 export {
   menu,
@@ -21,4 +22,5 @@ export {
   chevronLeft,
   chevronRight,
   profile,
+  illyCapsule,
 };
