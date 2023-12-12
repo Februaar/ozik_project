@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/product.scss";
 import { add, remove } from "../img";
 
 function ProductPage() {
   const { productId } = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState("");
   const [loading, setLoading] = useState(false);
   const [isPurchasing, setIsPurchasing] = useState(false);
@@ -40,9 +41,22 @@ function ProductPage() {
     setIsAdding(false);
   };
 
-  const handleAddClick = () => {
-    setIsAdding(!isAdding);
-    setIsPurchasing(false);
+  const handleCartClick = async () => {
+    try {
+      const res = await axios.post("http://localhost:4001/cart", {
+        product,
+        quantity,
+        totalAmount,
+      });
+      if (res.status === 200) {
+        alert("상품이 장바구니에 추가되었습니다.");
+      }
+      navigate("/my/cart");
+      setIsAdding(!isAdding);
+      setIsPurchasing(false);
+    } catch (err) {
+      console.error("상품을 추가하는 중 오류 발생:", err);
+    }
   };
 
   const handlePlusQuantity = () => {
@@ -99,14 +113,10 @@ function ProductPage() {
             </div>
             <div className="button-area">
               <button
-                onClick={handleAddClick}
+                onClick={handleCartClick}
                 className={`button ${isAdding ? "clicked" : ""}`}
               >
-                <Link
-                  to={`/my/cart?productId=${productId}&quantity=${quantity}&totalAmount=${totalAmount}`}
-                >
-                  고민해볼래요
-                </Link>
+                고민해볼래요
               </button>
               <button
                 onClick={handlePurchaseClick}

@@ -30,9 +30,9 @@ function Header() {
         OZIK
       </Link>
       <div className="icon-container">
-        <span onClick={handleLogout} className="login-icon">
+        <button onClick={handleLogout} className="login-icon">
           {user ? "로그아웃" : ""}
-        </span>
+        </button>
         <Link to="/search" className="search-icon">
           <img src={search} alt="Search" />
         </Link>
