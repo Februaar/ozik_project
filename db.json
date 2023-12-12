@@ -65,5 +65,82 @@
       "price": 23000,
       "image": "/img/waffle.jpg"
     }
+  ],
+  "cart": [
+    {
+      "product": {
+        "id": 1,
+        "brand": "Illy",
+        "name": "일리 커피",
+        "price": 19000,
+        "image": "/img/illy-capsule.jpg"
+      },
+      "quantity": 2,
+      "totalAmount": 38000,
+      "id": 1
+    },
+    {
+      "product": {
+        "id": 2,
+        "brand": "Nescafe",
+        "name": "네스카페 캡슐 커피",
+        "price": 18000,
+        "image": "/img/nescafe-capsule.jpg"
+      },
+      "quantity": 2,
+      "totalAmount": 36000,
+      "id": 2
+    },
+    {
+      "product": {
+        "id": 2,
+        "brand": "Nescafe",
+        "name": "네스카페 캡슐 커피",
+        "price": 18000,
+        "image": "/img/nescafe-capsule.jpg"
+      },
+      "quantity": 1,
+      "totalAmount": 18000,
+      "id": 3
+    }
+  ],
+  "purchases": [
+    {
+      "productId": "1",
+      "quantity": 1,
+      "totalAmount": 19000,
+      "id": 1
+    },
+    {
+      "productId": "1",
+      "quantity": 1,
+      "totalAmount": 19000,
+      "id": 2
+    },
+    {
+      "cartItems": [
+        {
+          "productId": 1,
+          "quantity": 1,
+          "totalAmount": 19000
+        },
+        {
+          "productId": 2,
+          "quantity": 1,
+          "totalAmount": 18000
+        },
+        {
+          "productId": 2,
+          "quantity": 1,
+          "totalAmount": 18000
+        },
+        {
+          "productId": 1,
+          "quantity": 1,
+          "totalAmount": 19000
+        }
+      ],
+      "id": 3
+    }
   ]
 }
