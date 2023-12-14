@@ -147,7 +147,22 @@
       "image": "/img/waffle.jpg"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "product": {
+        "id": 2,
+        "productId": 2,
+        "brand": "Nescafe",
+        "type": "coffee",
+        "name": "네스카페 캡슐 커피",
+        "price": 18000,
+        "image": "/img/nescafe-capsule.jpg"
+      },
+      "quantity": 1,
+      "totalAmount": 18000,
+      "id": 1
+    }
+  ],
   "purchases": [],
   "purchased": [
     {
