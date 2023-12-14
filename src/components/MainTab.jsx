@@ -10,7 +10,7 @@ function MainTab() {
 
   const fetchData = async (endpoint) => {
     try {
-      const res = await axios.get(`http://localhost:4001/${endpoint}`);
+      const res = await axios.get(`http://ozik-node-test.herokuapp.com/${endpoint}`);
       return res.data;
     } catch (err) {
       console.error(`Error fetching products for ${endpoint}:`, err);
