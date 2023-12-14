@@ -21,29 +21,26 @@ function MainHeader() {
         {user ? (
           <>
             <h2 className="header-sign">WELCOME</h2>
-            <div className="info-box">
-              <button
-                onClick={handleMyPageClick}
-                className="page-button"
-              >
+            <div className="my-box">
+              <button onClick={handleMyPageClick} className="my-button">
                 <img
                   src={user.photoURL ? user.photoURL : profile}
                   className="img"
                 />
               </button>
-              <button className="nickname">
-                {user.displayName ? user.displayName : "사용자"} 님
-              </button>
+              <div className="nickname-box">
+                <button className="nickname">
+                  {user.displayName ? user.displayName : "사용자"}
+                </button>
+                <span>님</span>
+              </div>
             </div>
           </>
         ) : (
           <>
             <h2 className="header-sign">반가워요</h2>
             <div className="info-box">
-              <button
-                onClick={handleSigninClick}
-                className="page-button"
-              >
+              <button onClick={handleSigninClick} className="page-button">
                 <img src={member} width={24} height={24} />
               </button>
               <button className="sign-in">로그인</button>

@@ -1,46 +1,45 @@
+import "../styles/my.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { PurchaseItem } from "../components/Item";
 
 function PurchaseList() {
-  const [products, setProducts] = useState({});
-  console.log(products);
+  const [purchases, setPurchases] = useState([]);
+  console.log(purchases);
 
   useEffect(() => {
-    const fetchProductData = async () => {
+    const fetchPurchasedProductData = async () => {
       try {
         const res = await axios.get(`http://localhost:4001/purchases`);
-        setProducts(res.data);
+        setPurchases(res.data);
       } catch (err) {
-        console.err("Error fetching product:", err);
+        console.error("Error fetching product:", err);
       }
     };
 
-    fetchProductData();
+    fetchPurchasedProductData();
   }, []);
 
   return (
     <>
       <p className="my-nav-title">구매 내역</p>
-      {products.length === 0 ? (
+      {purchases.length === 0 ? (
         <p className="no-data">구매하신 상품이 없습니다.</p>
       ) : (
-        // <div className="my-purchased-container">
-        //   <div key={products.id} className="my-purchsed-item"></div>
-        // </div>
-        <div className="my-cart-container">
-          {products.length > 0 &&
-            products.map((product) => {
-              <div key={product.id} className="cart-item">
-                <img src={product.image} className="item-img" />
-                <div className="quantity-area">
-                  <div className="quantity-controls">
-                    <span className="item-total">{product.quantity}</span>
-                  </div>
-                  <span>{product.totalAmount} 원</span>
-                </div>
-                <button className="item-delete">삭제</button>
-              </div>;
-            })}
+        <div className="my-purchase-container">
+          {purchases.map((purchase) => (
+            <div key={purchase.id} className="ordered-box">
+              <h3 className="ordered-number">주문 번호: {purchase.id}</h3>
+              <ul className="ordered-list">
+                {purchase.products.map((item) => (
+                  <PurchaseItem key={item.id} item={item}/>
+                ))}
+              </ul>
+              <p className="ordered-amount">
+                총 주문 금액: {purchase.totalAmounts} 원
+              </p>
+            </div>
+          ))}
         </div>
       )}
     </>

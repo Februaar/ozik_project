@@ -1,8 +1,9 @@
+import "../styles/product.scss";
+import { add, remove } from "../img";
+
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import "../styles/product.scss";
-import { add, remove } from "../img";
 
 function ProductPage() {
   const { productId } = useParams();
