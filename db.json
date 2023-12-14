@@ -2,6 +2,8 @@
   "products": [
     {
       "id": 1,
+      "productId": 1,
+      "type": "coffee",
       "brand": "Illy",
       "name": "일리 커피",
       "price": 19000,
@@ -9,13 +11,17 @@
     },
     {
       "id": 2,
+      "productId": 2,
       "brand": "Nescafe",
+      "type": "coffee",
       "name": "네스카페 캡슐 커피",
       "price": 18000,
       "image": "/img/nescafe-capsule.jpg"
     },
     {
       "id": 3,
+      "productId": 3,
+      "type": "coffee",
       "brand": "Nespresso",
       "name": "네스프레소 캡슐 커피",
       "price": 21000,
@@ -23,6 +29,8 @@
     },
     {
       "id": 4,
+      "productId": 4,
+      "type": "coffee",
       "brand": "Starbucks",
       "name": "스타벅스 캡슐 커피",
       "price": 18000,
@@ -30,6 +38,8 @@
     },
     {
       "id": 5,
+      "productId": 5,
+      "type": "snack",
       "brand": "Milka",
       "name": "밀카 초콜렛 (5개입)",
       "price": 23000,
@@ -37,15 +47,46 @@
     },
     {
       "id": 6,
+      "productId": 6,
+      "type": "snack",
       "brand": "Schogetten",
       "name": "쇼게텐 초콜렛",
       "price": 3000,
       "image": "/img/schogetten-chocolate.jpg"
+    },
+    {
+      "id": 7,
+      "productId": 7,
+      "type": "coffee",
+      "brand": "Starbucks",
+      "name": "스타벅스 커피",
+      "price": 12000,
+      "image": "/img/starbucks-house-blend.svg"
+    },
+    {
+      "id": 8,
+      "productId": 8,
+      "type": "drinks",
+      "brand": "Pepsi",
+      "name": "펩시 콜라",
+      "price": 19000,
+      "image": "/img/pepsi.jpg"
+    },
+    {
+      "id": 9,
+      "productId": 9,
+      "type": "snack",
+      "brand": "Rip van",
+      "name": "립반 와플",
+      "price": 23000,
+      "image": "/img/waffle.jpg"
     }
   ],
   "carousel": [
     {
       "id": 1,
+      "productId": 7,
+      "type": "coffee",
       "brand": "Starbucks",
       "name": "스타벅스 커피",
       "price": 12000,
@@ -53,6 +94,8 @@
     },
     {
       "id": 2,
+      "productId": 8,
+      "type": "drinks",
       "brand": "Pepsi",
       "name": "펩시 콜라",
       "price": 19000,
@@ -60,6 +103,8 @@
     },
     {
       "id": 3,
+      "productId": 9,
+      "type": "snack",
       "brand": "Rip van",
       "name": "립반 와플",
       "price": 23000,
@@ -69,75 +114,185 @@
   "cart": [
     {
       "product": {
-        "id": 1,
-        "brand": "Illy",
-        "name": "일리 커피",
+        "id": 8,
+        "productId": 8,
+        "type": "drinks",
+        "brand": "Pepsi",
+        "name": "펩시 콜라",
         "price": 19000,
-        "image": "/img/illy-capsule.jpg"
+        "image": "/img/pepsi.jpg"
       },
-      "quantity": 2,
-      "totalAmount": 38000,
-      "id": 1
+      "quantity": 1,
+      "totalAmount": 19000,
+      "id": 3
     },
     {
       "product": {
         "id": 2,
+        "productId": 2,
         "brand": "Nescafe",
-        "name": "네스카페 캡슐 커피",
-        "price": 18000,
-        "image": "/img/nescafe-capsule.jpg"
-      },
-      "quantity": 2,
-      "totalAmount": 36000,
-      "id": 2
-    },
-    {
-      "product": {
-        "id": 2,
-        "brand": "Nescafe",
+        "type": "coffee",
         "name": "네스카페 캡슐 커피",
         "price": 18000,
         "image": "/img/nescafe-capsule.jpg"
       },
       "quantity": 1,
       "totalAmount": 18000,
-      "id": 3
+      "id": 4
     }
   ],
   "purchases": [
     {
-      "productId": "1",
-      "quantity": 1,
-      "totalAmount": 19000,
+      "products": [
+        {
+          "product": {
+            "id": 1,
+            "productId": 1,
+            "type": "coffee",
+            "brand": "Illy",
+            "name": "일리 커피",
+            "price": 19000,
+            "image": "/img/illy-capsule.jpg"
+          },
+          "quantity": 1,
+          "totalAmount": 19000,
+          "id": 1
+        },
+        {
+          "product": {
+            "id": 4,
+            "productId": 4,
+            "type": "coffee",
+            "brand": "Starbucks",
+            "name": "스타벅스 캡슐 커피",
+            "price": 18000,
+            "image": "/img/starbucks-capsule.jpg"
+          },
+          "quantity": 1,
+          "totalAmount": 18000,
+          "id": 2
+        },
+        {
+          "product": {
+            "id": 8,
+            "productId": 8,
+            "type": "drinks",
+            "brand": "Pepsi",
+            "name": "펩시 콜라",
+            "price": 19000,
+            "image": "/img/pepsi.jpg"
+          },
+          "quantity": 1,
+          "totalAmount": 19000,
+          "id": 3
+        }
+      ],
       "id": 1
     },
     {
-      "productId": "1",
-      "quantity": 1,
-      "totalAmount": 19000,
+      "products": [
+        {
+          "product": {
+            "id": 1,
+            "productId": 1,
+            "type": "coffee",
+            "brand": "Illy",
+            "name": "일리 커피",
+            "price": 19000,
+            "image": "/img/illy-capsule.jpg"
+          },
+          "quantity": 1,
+          "totalAmount": 19000,
+          "id": 1
+        },
+        {
+          "product": {
+            "id": 4,
+            "productId": 4,
+            "type": "coffee",
+            "brand": "Starbucks",
+            "name": "스타벅스 캡슐 커피",
+            "price": 18000,
+            "image": "/img/starbucks-capsule.jpg"
+          },
+          "quantity": 1,
+          "totalAmount": 18000,
+          "id": 2
+        },
+        {
+          "product": {
+            "id": 8,
+            "productId": 8,
+            "type": "drinks",
+            "brand": "Pepsi",
+            "name": "펩시 콜라",
+            "price": 19000,
+            "image": "/img/pepsi.jpg"
+          },
+          "quantity": 1,
+          "totalAmount": 19000,
+          "id": 3
+        }
+      ],
       "id": 2
     },
     {
-      "cartItems": [
+      "products": [
         {
-          "productId": 1,
+          "product": {
+            "id": 1,
+            "productId": 1,
+            "type": "coffee",
+            "brand": "Illy",
+            "name": "일리 커피",
+            "price": 19000,
+            "image": "/img/illy-capsule.jpg"
+          },
           "quantity": 1,
-          "totalAmount": 19000
+          "totalAmount": 19000,
+          "id": 1
         },
         {
-          "productId": 2,
+          "product": {
+            "id": 4,
+            "productId": 4,
+            "type": "coffee",
+            "brand": "Starbucks",
+            "name": "스타벅스 캡슐 커피",
+            "price": 18000,
+            "image": "/img/starbucks-capsule.jpg"
+          },
           "quantity": 1,
-          "totalAmount": 18000
+          "totalAmount": 18000,
+          "id": 2
         },
         {
-          "productId": 2,
+          "product": {
+            "id": 8,
+            "productId": 8,
+            "type": "drinks",
+            "brand": "Pepsi",
+            "name": "펩시 콜라",
+            "price": 19000,
+            "image": "/img/pepsi.jpg"
+          },
           "quantity": 1,
-          "totalAmount": 18000
+          "totalAmount": 19000,
+          "id": 3
         },
         {
-          "productId": 1,
+          "product": {
+            "id": 2,
+            "productId": 2,
+            "brand": "Nescafe",
+            "type": "coffee",
+            "name": "네스카페 캡슐 커피",
+            "price": 18000,
+            "image": "/img/nescafe-capsule.jpg"
+          },
           "quantity": 1,
-          "totalAmount": 19000
+          "totalAmount": 18000,
+          "id": 4
         }
       ],
       "id": 3

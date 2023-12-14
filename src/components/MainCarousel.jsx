@@ -5,9 +5,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function MainCarousel() {
-  const [items, setItems] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(1);
   const navigate = useNavigate();
+  const [items, setItems] = useState([]);
+  console.log(items);
+  const [currentIndex, setCurrentIndex] = useState(1);
 
   useEffect(() => {
     const fetchCarouselData = async () => {
@@ -25,7 +26,7 @@ function MainCarousel() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
-    }, 80000);
+    }, 800000);
 
     return () => clearInterval(intervalId);
   }, [items]);
@@ -41,12 +42,16 @@ function MainCarousel() {
   };
 
   const handleGoToDetail = () => {
-    navigate(`/product/${items[currentIndex].id}`);
+    const selectedItem = items[currentIndex];
+    console.log(selectedItem);
+    navigate(`/product-list/${selectedItem.type}`, {
+      state: { product: selectedItem },
+    });
   };
 
   return (
     <div className="main-carousel-container">
-      <button onClick={handlePrev} className="click-button">
+      <button onClick={handlePrev}>
         <img src={chevronLeft} />
       </button>
       <div className="carousel-box">
@@ -55,26 +60,17 @@ function MainCarousel() {
             <img
               src={items[currentIndex].image}
               alt={items[currentIndex].name}
-              className="img"
+              className="item-img"
             />
-            <div className="recommend">
-              <span className="brand">{items[currentIndex].brand}</span>
-              <span className="name">{items[currentIndex].name}</span>
-            </div>
-            <button onClick={handleGoToDetail} className="button">
-              구경하기
+            <button onClick={handleGoToDetail} className="item-button">
+              {items[currentIndex].type} 구경하기
             </button>
           </>
         ) : (
-          <span>상품 데이터를 불러오는 중입니다.</span>
+          <p className="loading">상품 데이터를 불러오는 중입니다.</p>
         )}
       </div>
-      {/* {items.map((item) => (
-        <div key={item.id}>
-          <img src={item.image} alt={item.name} className="main-car-img" />
-        </div>
-      ))} */}
-      <button onClick={handleNext} className="click-button">
+      <button onClick={handleNext}>
         <img src={chevronRight} />
       </button>
     </div>

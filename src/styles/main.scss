@@ -13,7 +13,6 @@
   .logo {
     font-size: 18px;
   }
-
   .icon-container {
     display: grid;
     grid-template-columns: 1fr 0.5fr 0.5fr;
@@ -24,11 +23,9 @@
     .login-icon {
       font-size: 14px;
     }
-
     .search-icon {
       display: grid;
     }
-
     .category-icon {
       display: grid;
     }
@@ -49,8 +46,11 @@
     width: 130px;
     justify-items: center;
   }
-
   .info-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .my-box {
     display: grid;
     grid-template-columns: 0.5fr 2fr;
     justify-content: center;
@@ -58,10 +58,8 @@
     padding-top: 3px;
     gap: 5px;
 
-    .page-button {
-      cursor: pointer;
+    .my-button {
       display: grid;
-
       .img {
         border-radius: 100%;
         width: 36px;
@@ -69,12 +67,55 @@
       }
     }
 
-    // .nickname {
-    // }
+    .nickname-box {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      .nickname {
+        font-weight: 600;
+      }
+    }
 
     .sign-in {
       display: grid;
       align-items: end;
+    }
+  }
+}
+
+// MainCarousel
+.main-carousel-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.1fr 5fr 0.1fr;
+  justify-items: center;
+  height: 170px;
+
+  .carousel-box {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    .item-img {
+      width: 382px;
+      height: 170px;
+    }
+    .item-button {
+      position: absolute;
+      left: 10%;
+      bottom: 10%;
+      color: #ffffff;
+      background-color: #348386;
+      border-radius: 0.3rem;
+      font-size: 14px;
+      width: 120px;
+      height: 32px;
+    }
+    .loading {
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      width: 100%;
+      border: 1px solid $gray-light-color;
     }
   }
 }
@@ -88,61 +129,4 @@
   padding: 15px 16px;
   gap: 10px;
   border-bottom: 1px solid $gray-color;
-}
-
-// CarouselItem
-.main-carousel-container {
-  position: relative;
-  display: grid;
-  grid-template-columns: 0.1fr 5fr 0.1fr;
-  justify-items: center;
-  height: 170px;
-
-  // .click-button {
-  // }
-
-  .carousel-box {
-    display: grid;
-    width: 100%;
-    background-color: $primary-color;
-
-    .img {
-      width: 100%;
-      height: 170px;
-    }
-
-    .recommend {
-      position: absolute;
-      left: 10%;
-      top: 40%;
-      display: grid;
-      color: #ffffff;
-      grid-template-rows: 2fr 1fr;
-      justify-items: start;
-      width: 140px;
-      height: 40px;
-
-      .brand {
-        font-size: 18px;
-        color: inherit;
-      }
-
-      .name {
-        font-size: 14px;
-        color: inherit;
-      }
-    }
-
-    .button {
-      position: absolute;
-      left: 10%;
-      bottom: 10%;
-      color: #ffffff;
-      background-color: #000000;
-      border-radius: 0.3rem;
-      font-size: 14px;
-      width: 120px;
-      height: 32px;
-    }
-  }
 }

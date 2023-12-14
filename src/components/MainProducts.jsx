@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import ProductItem from "../components/ProductItem";
+import { ProductItem } from "../components/Item";
 
-function Products() {
+function MainProducts() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,16 +21,18 @@ function Products() {
   }, []);
 
   return (
-    <div className="product-item-container">
+    <>
       {loading ? (
-        <span>상품 데이터를 불러오는 중입니다.</span>
+        <p className="loading">상품 데이터를 불러오는 중입니다.</p>
       ) : (
-        products.map((product) => (
-          <ProductItem key={product.id} product={product} />
-        ))
+        <div className="product-item-container">
+          {products.map((product) => (
+            <ProductItem key={product.id} product={product} />
+          ))}
+        </div>
       )}
-    </div>
+    </>
   );
 }
 
-export default Products;
+export default MainProducts;

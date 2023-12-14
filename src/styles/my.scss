@@ -1,5 +1,6 @@
 @import "_variables";
 
+// MyHeader
 .my-profile-container {
   padding: 30px 16px;
   height: 135px;
@@ -7,16 +8,16 @@
   align-items: center;
   justify-items: center;
   gap: 7px;
-}
 
-.my-profile-img {
-  border-radius: 100%;
-  width: 45px;
-  height: 45px;
-}
+  .profile-img {
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+  }
 
-.my-nick {
-  font-size: 18px;
+  .nickname {
+    font-size: 18px;
+  }
 }
 
 .my-nav-container {
@@ -25,58 +26,15 @@
   margin-top: 10px;
   width: 100%;
   justify-items: center;
-}
 
-.my-nav-button {
-  width: fit-content;
-  padding-bottom: 5px;
-  border-bottom: 2px solid #2b2b2b;
-}
+  .nav-button {
+    width: fit-content;
+    padding-bottom: 5px;
 
-.my-edit-container {
-  display: grid;
-  grid-template-rows: 1fr 2fr 0.5fr;
-  align-items: center;
-  gap: 10px;
-  margin-top: 15px;
-  padding: 16px 30px;
-}
-
-.my-edit-input-content {
-  width: 80%;
-  display: grid;
-  grid-template-rows: 1fr 2fr;
-}
-
-.my-edit-input-password {
-  width: 80%;
-  display: grid;
-  grid-template-rows: 1fr 2fr;
-}
-
-.my-edit-content-title {
-  font-size: 18px;
-}
-
-.my-edit-input {
-  height: 40px;
-  font-size: 14px;
-}
-
-.my-edit-input::placeholder {
-  color: #c8c8c8;
-}
-
-.my-edit-button {
-  color: #5f9ea0;
-}
-
-.my-purchase-container {
-  display: grid;
-  grid-template-rows: repeat(1, 1fr);
-  gap: 5px;
-  margin-top: 15px;
-  padding: 16px 30px;
+    &.selected {
+      border-bottom: 2px solid #2b2b2b;
+    }
+  }
 }
 
 .my-nav-title {
@@ -90,11 +48,95 @@
   margin: 20px 30px;
 }
 
-// CartItem
+// ProfileEdit
+.my-edit-container {
+  display: grid;
+  grid-template-rows: 1fr 2fr 0.5fr;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 16px 30px;
+
+  .nickname-edit-box {
+    width: 80%;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+  }
+  .password-edit-box {
+    width: 80%;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+  }
+  .edit-title {
+    font-size: 18px;
+  }
+  .edit-input {
+    height: 40px;
+    font-size: 14px;
+  }
+  .edit-input::placeholder {
+    color: #c8c8c8;
+  }
+  .save-button {
+    color: #5f9ea0;
+  }
+}
+
+// PurchaseList
+.my-purchase-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 16px 30px;
+  gap: 5px;
+
+  .ordered-box {
+    padding: 16px 0;
+    display: grid;
+    grid-template-rows: 0.2fr 3fr 0.2fr;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-bottom: 1px solid $gray-color;
+
+    .ordered-number {
+      font-weight: 500;
+    }
+    .ordered-list {
+      display: grid;
+      grid-template-columns: 2fr 2fr 1fr;
+      justify-items: center;
+      padding: 5px 10px;
+      background-color: $gray-lighter-color;
+
+      .ordered-item {
+        display: inline-block;
+        margin-right: 10px;
+        .item-img {
+          width: 120px;
+          height: 110px;
+          border-radius: 11px;
+          padding: 5px;
+        }
+        .item-detail {
+          display: grid;
+          grid-template-rows: 1fr 1fr 1fr;
+          width: 100%;
+          padding: 0 12px;
+          .detail {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// CartList
 .my-cart-container {
   display: grid;
   grid-template-rows: repeat(1, 1fr);
   gap: 10px;
+  margin-top: 15px;
   padding: 16px 30px;
 
   .cart-item {
@@ -105,8 +147,8 @@
     padding: 5px 10px;
 
     .item-img {
-      width: 160px;
-      height: 100px;
+      width: 130px;
+      height: 110px;
       border-radius: 11px;
       padding: 5px;
     }

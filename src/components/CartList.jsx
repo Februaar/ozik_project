@@ -1,16 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { add, remove } from "../img/index";
+import { CartItem } from "../components/Item";
 
-function CartItem() {
+function CartList() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [quantities, setQuantities] = useState([]);
   const [totalAmounts, setTotalAmounts] = useState([]);
-  console.log(products);
-  console.log(quantities);
-  console.log(totalAmounts);
 
   useEffect(() => {
     const fetchCartData = async () => {
@@ -18,7 +15,6 @@ function CartItem() {
         const res = await axios.get(`http://localhost:4001/cart`);
         setProducts(res.data);
 
-        // 초기값으로 각 상품의 수량과 총액을 가져온 데이터로 설정
         const initialQuantities = {};
         const initialTotalAmounts = {};
         res.data.forEach((product) => {
@@ -65,10 +61,24 @@ function CartItem() {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:4001/cart/${id}`);
+
+      setProducts((prevProducts) =>
+        prevProducts.filter((product) => product.id !== id)
+      );
+    } catch (error) {
+      console.error("상품 정보를 삭제하는 중 오류 발생:", error);
+    }
+  };
+
   const handlePurchase = async () => {
     try {
-      await axios.post(`http://localhost:4001/purchases`);
-      navigate("/my/purchase-history");
+      await axios.post("http://localhost:4001/purchases", {
+        products,
+      });
+      navigate("/my/purchase");
     } catch (error) {
       console.error("구매 정보를 서버에 전송하는 중 오류 발생:", error);
     }
@@ -80,32 +90,27 @@ function CartItem() {
       {products.length === 0 ? (
         <p className="no-data">장바구니에 담긴 상품이 없습니다.</p>
       ) : (
-        <div className="my-cart-container">
-          {products.map((product) => (
-            <div key={product.id} className="cart-item">
-              <img src={product.product.image} className="item-img" />
-              <div className="quantity-area">
-                <div className="quantity-controls">
-                  <button onClick={() => handleMinusQuantity(product.id)}>
-                    <img src={remove} width={18} height={18} />
-                  </button>
-                  <span className="item-total">{quantities[product.id]}</span>
-                  <button onClick={() => handlePlusQuantity(product.id)}>
-                    <img src={add} width={18} height={18} />
-                  </button>
-                </div>
-                <span>{totalAmounts[product.id]} 원</span>
-              </div>
-              <button className="item-delete">삭제</button>
-            </div>
-          ))}
-        </div>
+        <>
+          <div className="my-cart-container">
+            {products.map((product) => (
+              <CartItem
+                key={product.id}
+                product={product}
+                quantity={quantities[product.id]}
+                totalAmount={totalAmounts[product.id]}
+                onMinusQuantity={() => handleMinusQuantity(product.id)}
+                onPlusQuantity={() => handlePlusQuantity(product.id)}
+                onDelete={() => handleDelete(product.id)}
+              />
+            ))}
+          </div>
+          <div className="order-button">
+            <button onClick={handlePurchase}>전체 구매하기</button>
+          </div>
+        </>
       )}
-      <div className="order-button">
-        <button onClick={handlePurchase}>전체 구매하기</button>
-      </div>
     </>
   );
 }
 
-export default CartItem;
+export default CartList;
