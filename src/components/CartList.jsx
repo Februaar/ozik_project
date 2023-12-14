@@ -6,6 +6,7 @@ import { CartItem } from "../components/Item";
 function CartList() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
+  console.log(products);
   const [quantities, setQuantities] = useState([]);
   const [totalAmounts, setTotalAmounts] = useState([]);
 
@@ -78,6 +79,21 @@ function CartList() {
       await axios.post("http://localhost:4001/purchases", {
         products,
       });
+
+      const purchaseData = products.map((product) => ({
+        productId: product.product.id,
+        brand: product.product.brand,
+        name: product.product.name,
+        price: product.product.price,
+        image: product.product.image,
+      }));
+
+      await Promise.all(
+        purchaseData.map(async (product) => {
+          await axios.post("http://localhost:4001/purchased", product);
+        })
+      );
+
       navigate("/my/purchase");
     } catch (error) {
       console.error("구매 정보를 서버에 전송하는 중 오류 발생:", error);

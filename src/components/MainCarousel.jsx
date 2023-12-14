@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 function MainCarousel() {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
-  console.log(items);
   const [currentIndex, setCurrentIndex] = useState(1);
 
   useEffect(() => {
@@ -26,7 +25,7 @@ function MainCarousel() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
-    }, 800000);
+    }, 5000);
 
     return () => clearInterval(intervalId);
   }, [items]);

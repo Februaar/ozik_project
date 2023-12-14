@@ -4,9 +4,10 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export function ProductItem({ product }) {
+
   return (
     <div className="product-area">
-      <Link to={`/product/${product.id}`}>
+      <Link to={`/product/${product.productId}`}>
         <div className="img-box">
           <img src={product.image} alt={product.name} className="img" />
         </div>
@@ -27,11 +28,12 @@ export function ProductItem({ product }) {
 ProductItem.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    brand: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
+    productId: PropTypes.number.isRequired,
+    brand: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    image: PropTypes.string,
+  }),
 };
 
 export function PurchaseItem({ item }) {

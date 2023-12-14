@@ -1,25 +1,7 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { ProductItem } from "../components/Item";
 
-function MainProducts() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchProductData = async () => {
-      try {
-        const res = await axios.get("http://localhost:4001/products");
-        setProducts(res.data);
-        setLoading(false);
-      } catch (err) {
-        console.error("Error fetching products:", err);
-      }
-    };
-
-    fetchProductData();
-  }, []);
-
+export function MainProducts({ loading, products }) {
   return (
     <>
       {loading ? (
@@ -35,4 +17,7 @@ function MainProducts() {
   );
 }
 
-export default MainProducts;
+MainProducts.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  products: PropTypes.arrayOf.isRequired,
+};
