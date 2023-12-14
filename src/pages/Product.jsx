@@ -84,7 +84,11 @@ function ProductPage() {
       ) : (
         <>
           <h3 className="product-detail-title">
-            ☕ 커피로 하루를 시작해보세요
+            {product.type === "coffee"
+              ? "☕ 커피로 하루를 시작해보세요"
+              : product.type === "snack"
+              ? "🍫 입맛 없을 땐 달달한 거 어때요?"
+              : "🍺 오늘 하루도 수고했어요"}
           </h3>
           <div className="product-detail-container">
             <div className="detail-area">
