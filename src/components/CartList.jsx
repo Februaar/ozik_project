@@ -13,7 +13,7 @@ function CartList() {
   useEffect(() => {
     const fetchCartData = async () => {
       try {
-        const res = await axios.get(`http://localhost:4001/cart`);
+        const res = await axios.get("https://breezy-equatorial-bag.glitch.me/cart");
         setProducts(res.data);
 
         const initialQuantities = {};
@@ -64,7 +64,7 @@ function CartList() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4001/cart/${id}`);
+      await axios.delete(`https://breezy-equatorial-bag.glitch.me/cart/${id}`);
 
       setProducts((prevProducts) =>
         prevProducts.filter((product) => product.id !== id)
@@ -76,7 +76,7 @@ function CartList() {
 
   const handlePurchase = async () => {
     try {
-      await axios.post("http://localhost:4001/purchases", {
+      await axios.post("https://breezy-equatorial-bag.glitch.me/purchases", {
         products,
       });
 
@@ -90,7 +90,7 @@ function CartList() {
 
       await Promise.all(
         purchaseData.map(async (product) => {
-          await axios.post("http://localhost:4001/purchased", product);
+          await axios.post("https://breezy-equatorial-bag.glitch.me/purchased", product);
         })
       );
 

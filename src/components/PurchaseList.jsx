@@ -10,7 +10,7 @@ function PurchaseList() {
   useEffect(() => {
     const fetchPurchasedProductData = async () => {
       try {
-        const res = await axios.get(`http://localhost:4001/purchases`);
+        const res = await axios.get("https://breezy-equatorial-bag.glitch.me/purchases");
         setPurchases(res.data);
       } catch (err) {
         console.error("Error fetching product:", err);

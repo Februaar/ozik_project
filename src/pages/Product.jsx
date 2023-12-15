@@ -19,7 +19,7 @@ function ProductPage() {
     const fetchProductData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:4001/products/${productId}`
+          `https://breezy-equatorial-bag.glitch.me/products/${productId}`
         );
         setProduct(res.data);
         setLoading(false);
@@ -44,7 +44,7 @@ function ProductPage() {
 
   const handleCartClick = async () => {
     try {
-      const res = await axios.post("http://localhost:4001/cart", {
+      const res = await axios.post("https://breezy-equatorial-bag.glitch.me/cart", {
         product,
         quantity,
         totalAmount,
