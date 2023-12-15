@@ -12,7 +12,7 @@ function MainCarousel() {
   useEffect(() => {
     const fetchCarouselData = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/carousel");
+        const res = await axios.get("https://breezy-equatorial-bag.glitch.me/carousel");
         setItems(res.data);
       } catch (err) {
         console.error("Error fetching products:", err);

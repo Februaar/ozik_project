@@ -11,7 +11,7 @@ function ProductList() {
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/products");
+        const res = await axios.get("https://breezy-equatorial-bag.glitch.me/products");
         setProducts(res.data);
         setLoading(false);
       } catch (err) {

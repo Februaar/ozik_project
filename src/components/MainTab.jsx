@@ -5,12 +5,11 @@ import { MainProducts } from "../components/MainProducts";
 
 function MainTab() {
   const [products, setProducts] = useState([]);
-  console.log(products);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async (endpoint) => {
     try {
-      const res = await axios.get(`http://ozik-node-test.herokuapp.com/${endpoint}`);
+      const res = await axios.get(`https://breezy-equatorial-bag.glitch.me/${endpoint}`);
       return res.data;
     } catch (err) {
       console.error(`Error fetching products for ${endpoint}:`, err);
