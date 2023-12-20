@@ -12,12 +12,12 @@ function SearchPage() {
   return (
     <>
       <div className="search-container">
-        <div className="top">
+        <div className="search-top">
           <input className="search-input" />
           <img src={cancel} className="delete" alt="Cancel" />
         </div>
-        <div className="content-area">
-          <div className="search-value">
+        <div className="search-value-area">
+          <div className="search-history">
             <span className="title">최근 검색어</span>
             <div className="value-container">
               <span className="value">스타벅스</span>
