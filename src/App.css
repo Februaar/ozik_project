@@ -3,13 +3,29 @@
   src: url("./styles/fonts/BMHANNA_11yrs.TTF") format("truetype");
 }
 
-#root {
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #efefef;
+  overflow: hidden;
   font-family: "BMHANNA_11yrs", sans-serif;
-  min-width: 430px;
-  min-height: 932px;
-  max-width: 1280px;
+  font-size: 16px;
+  color: #222222;
+}
+
+#root {
+  position: relative;
+  width: 430px;
+  max-width: 450px;
+  height: 100vh;
+  max-height: 932px;
+  overflow-y: scroll;
   margin: 0 auto;
   font: inherit;
+  font-size: inherit;
 }
 
 * {
