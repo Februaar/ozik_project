@@ -1,7 +1,6 @@
-import { add, remove } from "../img/index";
-
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { add, remove } from "../img/index";
 
 export function ProductItem({ product }) {
 

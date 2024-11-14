@@ -1,8 +1,7 @@
-import { chevronLeft, chevronRight } from "../img/index";
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { chevronLeft, chevronRight } from "../img/index";
 
 function MainCarousel() {
   const navigate = useNavigate();
@@ -12,7 +11,9 @@ function MainCarousel() {
   useEffect(() => {
     const fetchCarouselData = async () => {
       try {
-        const res = await axios.get("https://breezy-equatorial-bag.glitch.me/carousel");
+        const res = await axios.get(
+          "https://breezy-equatorial-bag.glitch.me/carousel"
+        );
         setItems(res.data);
       } catch (err) {
         console.error("Error fetching products:", err);

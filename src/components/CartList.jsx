@@ -6,7 +6,6 @@ import { CartItem } from "../components/Item";
 function CartList() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
-  console.log(products);
   const [quantities, setQuantities] = useState([]);
   const [totalAmounts, setTotalAmounts] = useState([]);
 

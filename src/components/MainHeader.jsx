@@ -1,7 +1,6 @@
-import { member, profile } from "../img/index";
-
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
+import { member, profile } from "../img/index";
 
 function MainHeader() {
   const { user } = useAuth();

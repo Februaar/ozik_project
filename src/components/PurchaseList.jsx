@@ -1,16 +1,17 @@
-import "../styles/my.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { PurchaseItem } from "../components/Item";
+import "../styles/my.scss";
 
 function PurchaseList() {
   const [purchases, setPurchases] = useState([]);
-  console.log(purchases);
 
   useEffect(() => {
     const fetchPurchasedProductData = async () => {
       try {
-        const res = await axios.get("https://breezy-equatorial-bag.glitch.me/purchases");
+        const res = await axios.get(
+          "https://breezy-equatorial-bag.glitch.me/purchases"
+        );
         setPurchases(res.data);
       } catch (err) {
         console.error("Error fetching product:", err);
@@ -32,7 +33,7 @@ function PurchaseList() {
               <h3 className="ordered-number">주문 번호: {purchase.id}</h3>
               <ul className="ordered-list">
                 {purchase.products.map((item) => (
-                  <PurchaseItem key={item.id} item={item}/>
+                  <PurchaseItem key={item.id} item={item} />
                 ))}
               </ul>
               <p className="ordered-amount">

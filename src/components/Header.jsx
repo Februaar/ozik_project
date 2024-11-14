@@ -1,6 +1,5 @@
 import "../styles/main.scss";
 import { menu, search } from "../img/index";
-
 import { Link, useLocation } from "react-router-dom";
 import { auth } from "../../firebase-config";
 import { useAuth } from "../AuthContext";
