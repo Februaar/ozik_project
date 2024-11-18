@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-export function CategoryButton({ type, label, emoji }) {
+export default function Button({ type, label, emoji }) {
   const navigate = useNavigate();
 
   const handleTypeClick = () => {
@@ -14,7 +14,7 @@ export function CategoryButton({ type, label, emoji }) {
   );
 }
 
-CategoryButton.propTypes = {
+Button.propTypes = {
   type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   emoji: PropTypes.string.isRequired,
