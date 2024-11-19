@@ -1,8 +1,7 @@
-import "../styles/my.scss";
-import { profile } from "../img/index";
-
 import { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
+import "../styles/my.scss";
+import { profile } from "../img/index";
 import { useAuth } from "../AuthContext";
 import EditProfile from "../components/EditProfile";
 import PurchaseList from "../components/PurchaseList";
