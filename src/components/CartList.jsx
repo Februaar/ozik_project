@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartItem } from "../components/Item";
+import { CartItem } from "../components/ui/item";
 
 function CartList() {
   const navigate = useNavigate();
