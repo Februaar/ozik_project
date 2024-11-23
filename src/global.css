@@ -1,39 +1,31 @@
 @font-face {
-  font-family: "BMHANNA_11yrs";
-  src: url("./styles/fonts/BMHANNA_11yrs.TTF") format("truetype");
+  font-family: "GmarketSansMedium";
+  src: url("./styles/fonts/GmarketSansMedium.ttf");
 }
 
 body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  background-color: #efefef;
-  overflow: hidden;
-  font-family: "BMHANNA_11yrs", sans-serif;
-  font-size: 16px;
-  color: #222222;
+  font-family: "GmarketSansMedium";
+  margin: 0 auto;
+  max-width: 42rem;
+}
+
+@media (min-width: 1280px) {
+  body {
+    max-width: 70rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 #root {
-  position: relative;
-  width: 430px;
-  max-width: 450px;
-  height: 100vh;
-  max-height: 932px;
-  overflow-y: scroll;
-  margin: 0 auto;
-  font: inherit;
-  font-size: inherit;
+  min-width: 280px;
+  min-height: 100vh;
+  letter-spacing: 0.02em;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
 }
 
-* {
-  font-family: "BMHANNA_11yrs";
-  font-size: 16px;
-  color: #222222;
-  box-sizing: border-box;
-  padding: 0;
+p {
   margin: 0;
 }
 
@@ -45,16 +37,21 @@ a {
   margin: 0;
 }
 
-h2 {
+h1 {
   font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.1rem;
+}
+
+h2 {
+  font-size: 22px;
 }
 
 button {
   cursor: pointer;
   border-style: none;
   background-color: transparent;
+  padding: 0;
+  font-size: inherit;
 }
 
 input {

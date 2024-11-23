@@ -1,9 +1,9 @@
-import "../styles/main.scss";
-import { menu, search } from "../img/index";
 import { Link, useLocation } from "react-router-dom";
 import { auth } from "../../firebase-config";
-import { useAuth } from "../AuthContext";
 import { signOut } from "firebase/auth";
+import { useAuth } from "../AuthContext";
+import { menu } from "../img/index";
+import "../styles/header.scss";
 
 function Header() {
   const { user } = useAuth();
@@ -24,22 +24,21 @@ function Header() {
   };
 
   return (
-    <section className="header-container">
-      <Link to="/" className="logo">
-        OZIK
+    <header className="header-container">
+      <Link to="/">
+        <h1>오직</h1>
       </Link>
-      <div className="icon-container">
-        <button onClick={handleLogout} className="login-icon">
-          {user ? "로그아웃" : ""}
-        </button>
-        <Link to="/search" className="search-icon">
-          <img src={search} alt="Search" />
-        </Link>
-        <Link to="/product-list" className="category-icon">
-          <img src={menu} alt="Menu"></img>
-        </Link>
+      <div className="right">
+        <div className="status">
+          {user ? <button onClick={handleLogout}>로그아웃</button> : <button>로그인</button>}
+        </div>
+        <div className="menu">
+          {/* <Link to="/product-list"> */}
+          <img src={menu} alt="Menu" />
+          {/* </Link> */}
+        </div>
       </div>
-    </section>
+    </header>
   );
 }
 

@@ -9,7 +9,7 @@ function MainPage() {
   return (
     <>
       <MainHeader />
-      <MainCarousel />
+      {/* <MainCarousel /> */}
       <MainTab />
     </>
   );
