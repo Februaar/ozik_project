@@ -2,6 +2,7 @@ import "./global.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import ProductList from "./components/ProductList";
 
 import MainPage from "./pages/Main";
@@ -26,6 +27,7 @@ function App() {
         <Route path="/product-list/:type" element={<ProductList />} />
         <Route path="/product/:productId" element={<ProductPage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

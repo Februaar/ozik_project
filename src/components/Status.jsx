@@ -1,7 +1,7 @@
 export const Status = () => {
-return (
-  <div>
-    <div></div>
-  </div>
-)
-}
+  return (
+    <div>
+      <div></div>
+    </div>
+  );
+};

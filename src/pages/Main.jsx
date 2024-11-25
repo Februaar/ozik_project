@@ -1,17 +1,12 @@
 import "../styles/main.scss";
 import "../styles/product.scss";
-
-import MainHeader from "../components/MainHeader";
-import MainCarousel from "../components/MainCarousel";
-import MainTab from "../components/MainTab";
+import MenuTab from "../components/MenuTab";
 
 function MainPage() {
   return (
-    <>
-      <MainHeader />
-      {/* <MainCarousel /> */}
-      <MainTab />
-    </>
+    <div className="main-container">
+      <MenuTab />
+    </div>
   );
 }
 

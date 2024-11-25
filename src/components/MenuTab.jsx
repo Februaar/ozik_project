@@ -2,14 +2,17 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import { MainProducts } from "../components/MainProducts";
+import "../styles/menutab.scss";
 
-function MainTab() {
+const MenuTab = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async (endpoint) => {
     try {
-      const res = await axios.get(`https://breezy-equatorial-bag.glitch.me/${endpoint}`);
+      const res = await axios.get(
+        `https://breezy-equatorial-bag.glitch.me/${endpoint}`
+      );
       return res.data;
     } catch (err) {
       console.error(`Error fetching products for ${endpoint}:`, err);
@@ -27,19 +30,30 @@ function MainTab() {
     handleTabClick("products");
   }, []);
 
+  const tabContent = [
+    {
+      path: "/all",
+      title: "All",
+    },
+    {
+      path: "/purchased",
+      title: "Purchased",
+    },
+    {
+      path: "/best",
+      title: "Recommend",
+    },
+  ];
+
   return (
     <>
-      <nav className="main-tab-container">
-        <Link to="/all" onClick={() => handleTabClick("products")}>
-          전체
-        </Link>
-        <Link to="/purchased" onClick={() => handleTabClick("purchased")}>
-          내가 자주 구매하는
-        </Link>
-        <Link to="/best" onClick={() => handleTabClick("best")}>
-          연령별 인기
-        </Link>
-      </nav>
+      <div className="menu-tab">
+        {tabContent.map((data, index) => (
+          <Link key={index} href="data.path">
+            <span>{data.title}</span>
+          </Link>
+        ))}
+      </div>
       <Routes>
         <Route
           path="/"
@@ -79,6 +93,6 @@ function MainTab() {
       </Routes>
     </>
   );
-}
+};
 
-export default MainTab;
+export default MenuTab;
