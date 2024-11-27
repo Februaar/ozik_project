@@ -2,11 +2,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import { MainProducts } from "../components/MainProducts";
-import "../styles/menutab.scss";
+import "../styles/maintab.scss";
 
-const MenuTab = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+const MainTab = () => {
+  // const [products, setProducts] = useState([]);
+  // const [loading, setLoading] = useState(true);
 
   const fetchData = async (endpoint) => {
     try {
@@ -30,6 +30,8 @@ const MenuTab = () => {
     handleTabClick("products");
   }, []);
 
+  const [activeTab, setActiveTab] = useState();
+
   const tabContent = [
     {
       path: "/all",
@@ -45,16 +47,33 @@ const MenuTab = () => {
     },
   ];
 
+  const handleTabClick = (key) => {
+    console.log(`${key} 탭 클릭`);
+    setActiveTab(key);
+  };
+
   return (
     <>
-      <div className="menu-tab">
+      <div className="main-tab">
         {tabContent.map((data, index) => (
-          <Link key={index} href="data.path">
-            <span>{data.title}</span>
+          <Link
+            key={index}
+            href="data.path"
+            onClick={() => handleTabClick(data.path)}
+          >
+            <span
+              style={{
+                margin: "0 10px",
+                fontWeight: activeTab === data.path ? "bold" : "normal",
+              }}
+            >
+              {data.title}
+            </span>
           </Link>
         ))}
       </div>
-      <Routes>
+
+      {/* <Routes>
         <Route
           path="/"
           element={<MainProducts products={products} loading={loading} />}
@@ -90,9 +109,9 @@ const MenuTab = () => {
             }
           />
         </Route>
-      </Routes>
+      </Routes> */}
     </>
   );
 };
 
-export default MenuTab;
+export default MainTab;

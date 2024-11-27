@@ -1,11 +1,11 @@
 import "../styles/main.scss";
 import "../styles/product.scss";
-import MenuTab from "../components/MenuTab";
+import MainTab from "../components/MainTab";
 
 function MainPage() {
   return (
     <div className="main-container">
-      <MenuTab />
+      <MainTab />
     </div>
   );
 }
