@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { PurchaseItem } from "../components/Item";
+// import { PurchaseItem } from "../components/Item";
 import "../styles/my.scss";
 
 function PurchaseList() {

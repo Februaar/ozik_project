@@ -1,11 +1,10 @@
 import "../styles/main.scss";
-import "../styles/product.scss";
-import MainTab from "../components/MainTab";
+import Navigation from "../components/Navigation";
 
 function MainPage() {
   return (
     <div className="main-container">
-      <MainTab />
+      <Navigation />
     </div>
   );
 }

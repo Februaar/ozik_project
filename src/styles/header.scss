@@ -5,6 +5,7 @@
   align-items: center;
   .right {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 0.5rem;
     .status {
@@ -15,6 +16,7 @@
       width: fit-content;
       img {
         width: 20px;
+        display: flex;
       }
     }
   }

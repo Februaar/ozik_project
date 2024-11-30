@@ -1,29 +1,29 @@
+import "../styles/item.scss";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export function ProductItem({ product }) {
-
+export const ProductCard = ({ ...item }) => {
   return (
-    <div className="product-area">
-      <Link to={`/product/${product.productId}`}>
-        <div className="img-box">
-          <img src={product.image} alt={product.name} className="img" />
+    <div className="product-card">
+      <Link to={`/product/${item.productId}`}>
+        <div className="product-img">
+          <img src={item.image} alt={item.name} />
         </div>
-        <div className="content-box">
-          <div className="content-detail">
-            <span className="brand">{product.brand}</span>
-            <span className="name">{product.name}</span>
+        <div className="product-detail-box">
+          <div className="product-detail">
+            <span className="brand">{item.brand}</span>
+            <span className="name">{item.name}</span>
           </div>
-          <div className="price">
-            <span className="won">{product.price}원</span>
+          <div className="product-price">
+            <span className="price">{item.price}원</span>
           </div>
         </div>
       </Link>
     </div>
   );
-}
+};
 
-ProductItem.propTypes = {
+ProductCard.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number.isRequired,
     productId: PropTypes.number.isRequired,
@@ -34,26 +34,26 @@ ProductItem.propTypes = {
   }),
 };
 
-export function PurchaseItem({ item }) {
-  return (
-    <li className="ordered-item">
-      <img
-        src={item.product.image}
-        alt={item.product.name}
-        className="item-img"
-      />
-      <div className="item-detail">
-        <p className="detail">{item.product.name}</p>
-        <p className="detail">수량: {item.quantity}</p>
-        <p className="detail">총액: {item.totalAmount} 원</p>
-      </div>
-    </li>
-  );
-}
+// export function PurchaseItem({ item }) {
+//   return (
+//     <li className="ordered-item">
+//       <img
+//         src={item.product.image}
+//         alt={item.product.name}
+//         className="item-img"
+//       />
+//       <div className="item-detail">
+//         <p className="detail">{item.product.name}</p>
+//         <p className="detail">수량: {item.quantity}</p>
+//         <p className="detail">총액: {item.totalAmount} 원</p>
+//       </div>
+//     </li>
+//   );
+// }
 
-PurchaseItem.propTypes = {
-  item: PropTypes.object.isRequired,
-};
+// PurchaseItem.propTypes = {
+//   item: PropTypes.object.isRequired,
+// };
 
 // export function CartItem({
 //   product,

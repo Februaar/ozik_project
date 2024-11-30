@@ -1,4 +1,4 @@
-import "../styles/product.scss";
+// import "../styles/item.scss";
 import { add, remove } from "../img";
 
 import axios from "axios";

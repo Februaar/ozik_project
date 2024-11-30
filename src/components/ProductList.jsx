@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {ProductItem} from "../components/Item";
+// import { ProductItem } from "../components/Item";
 
 function ProductList() {
   const { type } = useParams();
@@ -11,7 +11,9 @@ function ProductList() {
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const res = await axios.get("https://breezy-equatorial-bag.glitch.me/products");
+        const res = await axios.get(
+          "https://breezy-equatorial-bag.glitch.me/products"
+        );
         setProducts(res.data);
         setLoading(false);
       } catch (err) {

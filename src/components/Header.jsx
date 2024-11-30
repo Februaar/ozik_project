@@ -33,9 +33,9 @@ function Header() {
           {user ? <button onClick={handleLogout}>로그아웃</button> : <button>로그인</button>}
         </div>
         <div className="menu">
-          {/* <Link to="/product-list"> */}
+          <Link to="/product-list">
           <img src={menu} alt="Menu" />
-          {/* </Link> */}
+          </Link>
         </div>
       </div>
     </header>
