@@ -1,17 +1,18 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase-config";
 import { signOut } from "firebase/auth";
 import { useAuth } from "../AuthContext";
-import { menu } from "../img/index";
 import "../styles/header.scss";
+import { menu } from "../img/index";
+import { Status } from "../components/Status";
 
 function Header() {
   const { user } = useAuth();
-  const location = useLocation();
+  const navigate = useNavigate();
 
-  if (location.pathname === "/search") {
-    return null;
-  }
+  const handleSigninClick = () => {
+    navigate("/signin");
+  };
 
   const handleLogout = () => {
     signOut(auth)
@@ -29,12 +30,19 @@ function Header() {
         <h1>오직</h1>
       </Link>
       <div className="right">
-        <div className="status">
-          {user ? <button onClick={handleLogout}>로그아웃</button> : <button>로그인</button>}
+        <div className="status-area">
+          {user ? (
+            <>
+              <Status {...user} />
+              {/* <button onClick={handleLogout}>로그아웃</button> */}
+            </>
+          ) : (
+            <button onClick={handleSigninClick}>로그인</button>
+          )}
         </div>
         <div className="menu">
           <Link to="/product-list">
-          <img src={menu} alt="Menu" />
+            <img src={menu} alt="Menu" />
           </Link>
         </div>
       </div>

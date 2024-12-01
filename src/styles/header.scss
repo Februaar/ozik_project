@@ -1,5 +1,5 @@
 .header-container {
-  padding: 1rem 2rem;
+  padding: 3rem 2rem 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,9 +8,6 @@
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
-    .status {
-      font-size: 12px;
-    }
     .menu {
       display: flex;
       width: fit-content;

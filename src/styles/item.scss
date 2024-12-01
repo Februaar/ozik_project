@@ -1,7 +1,7 @@
-@import "_variables";
+@use "_variables" as vars;
 
 .product-card {
-  border: 1px solid #cccccc;
+  border: 1px solid vars.$border-color;
   border-radius: 8px;
   padding: 12px 0;
   .product-img {
@@ -10,7 +10,6 @@
     img {
       width: 160px;
       height: 160px;
-      background-color: #efefef;
     }
   }
   .product-detail-box {
@@ -65,7 +64,7 @@
       justify-content: center;
       align-items: center;
       margin: 0 auto;
-      border-bottom: 1px solid $gray-color;
+      border-bottom: 1px solid vars.$gray-color;
       width: 300px;
       height: 300px;
 
@@ -95,8 +94,8 @@
       align-items: center;
       margin: 0 auto;
       width: 300px;
-      border-top: 1px solid $gray-light-color;
-      border-bottom: 1px solid $gray-light-color;
+      border-top: 1px solid vars.$gray-light-color;
+      border-bottom: 1px solid vars.$gray-light-color;
       padding: 15px 0;
 
       .quantity-controls {
@@ -119,10 +118,10 @@
     .button {
       border-radius: 5px;
       color: #ffffff;
-      background-color: $gray-color;
+      background-color: vars.$gray-color;
     }
     .clicked {
-      background-color: $primary-color;
+      background-color: vars.$primary-color;
     }
   }
 }
@@ -152,8 +151,8 @@
       font-size: 20px;
       height: 100%;
       color: #ffffff;
-      background-color: $primary-color;
-      border-bottom: 1px solid $gray-color;
+      background-color: vars.$primary-color;
+      border-bottom: 1px solid vars.$gray-color;
     }
   }
 }
@@ -164,7 +163,7 @@
     display: grid;
     justify-items: center;
     align-items: center;
-    border-bottom: 1px solid $gray-light-color;
+    border-bottom: 1px solid vars.$gray-light-color;
 
     .title {
       display: flex;
@@ -173,7 +172,7 @@
       width: 50%;
       border-radius: 10px;
       color: #ffffff;
-      background-color: $primary-color;
+      background-color: vars.$primary-color;
       font-size: 20px;
       font-weight: 400;
     }
