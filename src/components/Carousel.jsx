@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { DataContext } from "../context/context";
 import "../styles/carousel.scss";
 
 export default function Carousel() {
   const { carouselData, loading } = useContext(DataContext);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % carouselData.length);
@@ -24,6 +26,11 @@ export default function Carousel() {
     return () => clearInterval(intervalId);
   }, [carouselData]);
 
+  const handleDetailClick = () => {
+    const selectedItem = carouselData[currentIndex];
+    navigate(`/product-list/${selectedItem.type}`);
+  };
+  
   if (loading) {
     return <p className="loading">상품 데이터를 불러오는 중입니다.</p>;
   }
@@ -37,6 +44,7 @@ export default function Carousel() {
             key={index}
             src={data.image}
             style={{ display: index === currentIndex ? "block" : "none" }}
+            onClick={handleDetailClick}
             alt={`Slide ${index + 1}`}
           />
         ))}
