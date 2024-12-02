@@ -1,6 +1,6 @@
 import Button from "../components/ui/button";
 
-function ProductListPage() {
+function CategoryListPage() {
   return (
     <div className="category-list-container">
       <h3 className="category-list-title">카테고리를 선택해주세요</h3>
@@ -18,4 +18,4 @@ function ProductListPage() {
   );
 }
 
-export default ProductListPage;
+export default CategoryListPage;

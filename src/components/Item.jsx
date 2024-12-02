@@ -1,6 +1,6 @@
-import "../styles/item.scss";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import "../styles/item.scss";
 
 export const ProductCard = ({ ...item }) => {
   return (

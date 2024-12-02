@@ -28,7 +28,7 @@ export default function Carousel() {
 
   const handleDetailClick = () => {
     const selectedItem = carouselData[currentIndex];
-    navigate(`/product-list/${selectedItem.type}`);
+    navigate(`/category-list/${selectedItem.type}`);
   };
   
   if (loading) {
