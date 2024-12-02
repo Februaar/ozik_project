@@ -5,7 +5,6 @@ import "../styles/navigation.scss";
 
 const Navigation = () => {
   const { data, loading } = useContext(DataContext);
-  console.log(data);
   const [currentTab, setCurrentTab] = useState("products");
 
   const handleTabClick = (key) => {
@@ -17,7 +16,7 @@ const Navigation = () => {
   }
 
   return (
-    <div>
+    <>
       <nav className="main-tab">
         {Object.keys(data).map((key) => (
           <button
@@ -39,7 +38,7 @@ const Navigation = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 

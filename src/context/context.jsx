@@ -5,32 +5,33 @@ import axios from "axios";
 export const DataContext = createContext();
 
 // Provider 컴포넌트
+// eslint-disable-next-line react/prop-types
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState({
     products: [],
     purchased: [],
     best: [],
   });
-  const [loading, setLoading] = useState(true);
+  const [carouselData, setCarouselData] = useState([]);
+  console.log(carouselData);
+  const [loading, setLoading] = useState({
+  });
 
   const fetchAllData = async () => {
     try {
       setLoading(true);
       const endpoints = ["products", "purchased", "best"];
-      const responses = await Promise.all(
+      const res = await Promise.all(
         endpoints.map((endpoint) =>
           axios.get(`https://breezy-equatorial-bag.glitch.me/${endpoint}`)
         )
       );
-      console.log(responses);
 
-      const fetchedData = {
-        products: responses[0].data,
-        purchased: responses[1].data,
-        best: responses[2].data,
-      };
-
-      setData(fetchedData);
+      setData({
+        products: res[0].data,
+        purchased: res[1].data,
+        best: res[2].data,
+      });
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -38,12 +39,27 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  const fetchCarouselData = async () => {
+    try {
+      setLoading(true);
+      const res = await axios.get(
+        "https://breezy-equatorial-bag.glitch.me/carousel"
+      );
+      setCarouselData(res.data);
+    } catch (error) {
+      console.error("Error fetching Carousel Data:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    fetchAllData(); // 초기 데이터 로드
+    fetchAllData();
+    fetchCarouselData();
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, loading }}>
+    <DataContext.Provider value={{ data, carouselData, loading }}>
       {children}
     </DataContext.Provider>
   );
