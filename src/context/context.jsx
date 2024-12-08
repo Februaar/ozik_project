@@ -13,7 +13,6 @@ export const DataProvider = ({ children }) => {
     best: [],
   });
   const [carouselData, setCarouselData] = useState([]);
-  console.log(carouselData);
   const [loading, setLoading] = useState({
   });
 

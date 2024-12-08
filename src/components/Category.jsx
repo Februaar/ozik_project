@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import "../styles/category.scss";
 
 export default function Category() {
+  const navigate = useNavigate();
+
   const menudata = [
     { type: "all", description: "전체 둘러보기" },
     { type: "coffee", description: "커피 한 잔 할래요?" },
@@ -8,15 +11,25 @@ export default function Category() {
     { type: "snack", description: "영화 볼 땐 과자가 빠지면 안되죠" },
   ];
 
+  const handleMenuClick = (type) => {
+    navigate(`product-list/${type}`);
+  };
+
   return (
     <div className="category-container">
-      <ul className="menu-popover">
-        {menudata.map((data, index) => (
-          <li key={index} type={data.type}>
-            {data.description}
-          </li>
-        ))}
-      </ul>
+      <div className="menu-container">
+        <ul className="menu-popover">
+          {menudata.map((data, index) => (
+            <li
+              key={index}
+              onClick={() => handleMenuClick(data.type)}
+              className="menu-list"
+            >
+              {data.description}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

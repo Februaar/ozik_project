@@ -3,7 +3,6 @@ import "../styles/status.scss";
 import { profile } from "../img/index";
 
 export function Status({ ...user }) {
-  console.log(user);
   const navigate = useNavigate();
 
   const handleMyPageClick = () => {

@@ -1,17 +1,16 @@
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebase-config";
-import { signOut } from "firebase/auth";
+// import { auth } from "../../firebase-config";
+// import { signOut } from "firebase/auth";
 import { useAuth } from "../AuthContext";
+import { useMenu } from "../context/MenuContext";
 import "../styles/header.scss";
 import { menu } from "../img/index";
 import { Status } from "../components/Status";
-import Category from "../components/Category";
 
 function Header() {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { toggleMenu } = useMenu();
 
   const handleSigninClick = () => {
     navigate("/signin");
@@ -26,10 +25,6 @@ function Header() {
   //       console.error("로그아웃 실패", err);
   //     });
   // };
-
-  const handleMenuOpen = () => {
-    setMenuOpen((prev) => !prev);
-  };
 
   return (
     <>
@@ -48,10 +43,9 @@ function Header() {
               <button onClick={handleSigninClick}>로그인</button>
             )}
           </div>
-          <div className="menu" onClick={handleMenuOpen}>
+          <div className="menu" onClick={toggleMenu}>
             <img src={menu} alt="Menu" />
           </div>
-          {menuOpen ? <Category /> : ""}
         </div>
       </header>
     </>
