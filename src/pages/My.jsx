@@ -1,24 +1,25 @@
-import { useState } from "react";
-import { Link, Routes, Route } from "react-router-dom";
+// import { useState } from "react";
+// import { Link, Routes, Route } from "react-router-dom";
 import "../styles/my.scss";
-import { profile } from "../img/index";
-import { useAuth } from "../AuthContext";
-import EditProfile from "../components/EditProfile";
-import PurchaseList from "../components/PurchaseList";
-import CartList from "../components/CartList";
-import SignIn from "./SignIn";
+// import { profile } from "../img/index";
+// import { useAuth } from "../AuthContext";
+import ProfileEdit from "../components/ProfileEdit";
+// import PurchaseList from "../components/PurchaseList";
+// import CartList from "../components/CartList";
+// import SignIn from "./SignIn";
 
 function MyPage() {
-  const { user } = useAuth();
-  const [isSelected, setIsSelected] = useState(null);
+  // const { user } = useAuth();
+  // const [isSelected, setIsSelected] = useState(null);
 
-  const handleNavClick = (navName) => {
-    setIsSelected(navName);
-  };
+  // const handleNavClick = (navName) => {
+  //   setIsSelected(navName);
+  // };
 
   return (
     <>
-      {user ? (
+      <ProfileEdit />
+      {/* {user ? (
         <>
           <div className="my-profile-container">
             <img
@@ -65,7 +66,7 @@ function MyPage() {
         </>
       ) : (
         <SignIn />
-      )}
+      )} */}
     </>
   );
 }
