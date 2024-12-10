@@ -5,7 +5,7 @@
     padding-bottom: 3rem;
   }
   .edit-item-container {
-    width: 40%;
+    width: 45%;
     .edit-item {
       padding-bottom: 2rem;
       display: flex;
@@ -18,6 +18,11 @@
       input {
         padding-left: 0.5rem;
         padding-bottom: 0.5rem;
+        width: 80%;
+      }
+      .error-message {
+        color: red;
+        font-size: 12px;
       }
       .submit-form {
         input {
@@ -31,12 +36,20 @@
   }
   .edit-button {
     width: fit-content;
-    background-color: #222222;
     margin-top: 1rem;
-    padding: 5px 8px;
-    border-radius: 10px;
-    button {
+    .disabled-button {
+      background-color: #cccccc;
+      color: #666666;
+      cursor: not-allowed;
+    }
+    .active-button {
+      background-color: #007bff;
       color: #ffffff;
+      cursor: pointer;
+    }
+    button {
+      padding: 5px 8px;
+      border-radius: 10px;
       font-size: 14px;
     }
   }
