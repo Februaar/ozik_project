@@ -21,7 +21,7 @@ function EditProfile() {
             className="edit-input"
           />
         </div>
-        <button className="save-button">저장하기</button>
+        // <button className="save-button">저장하기</button>
       </div>
     </>
   );
