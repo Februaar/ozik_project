@@ -16,7 +16,7 @@ export function Status({ ...user }) {
         width={"24px"}
         height={"24px"}
       />
-      <span>{user.displayName ? user.displayName : "사용자"}님님</span>
+      <span>{user.displayName ? user.displayName : "사용자"}님</span>
     </div>
   );
 }

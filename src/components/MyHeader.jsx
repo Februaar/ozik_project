@@ -6,6 +6,8 @@ export default function MyHeader({ ...user }) {
     <div className="my-header">
       <img
         src={user.user.photoURL ? user.user.photoURL : profile}
+        width={"45px"}
+        height={"45px"}
         className="my-img"
       />
       <span>{user.user.displayName ? user.user.displayName : "사용자"}님</span>
