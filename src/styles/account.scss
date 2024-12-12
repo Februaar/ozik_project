@@ -1,0 +1,78 @@
+.account-container {
+  padding: 1rem 2rem;
+  min-height: 60vh;
+  .account-header {
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    h4 {
+      font-size: 20px;
+    }
+  }
+  .account-form-area {
+    max-width: 400px;
+    margin: 0 auto;
+    .account-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      .input-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 1rem;
+        span {
+          margin-left: 0.5rem;
+        }
+        input {
+          padding-left: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+        input::placeholder {
+          color: #c8c8c8;
+        }
+        .error-message {
+          color: red;
+          font-size: 12px;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+    .signin-button-area {
+      width: 50%;
+      margin: 0 auto;
+      .signin-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.2rem;
+        .signup-button {
+          font-weight: 600;
+          color: #508cc1;
+        }
+      }
+    }
+    .signup-button-area {
+      width: fit-content;
+      margin: 0 auto;
+      padding: 2rem 0;
+      button {
+        padding: 6px 8px;
+        border-radius: 6px;
+      }
+      .disabled-button {
+        color: #ffffff;
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
+      .active-button {
+        color: #ffffff;
+        background-color: #508cc1;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

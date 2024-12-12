@@ -38,20 +38,20 @@
   .edit-button {
     width: fit-content;
     margin-top: 1rem;
-    .disabled-button {
-      background-color: #cccccc;
-      color: #ffffff;
-      cursor: not-allowed;
-    }
-    .active-button {
-      background-color: #007bff;
-      color: #ffffff;
-      cursor: pointer;
-    }
     button {
       padding: 8px 10px;
       border-radius: 8px;
       font-size: 14px;
+    }
+    .disabled-button {
+      color: #ffffff;
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    .active-button {
+      color: #ffffff;
+      background-color: #508cc1;
+      cursor: not-allowed;
     }
   }
 }

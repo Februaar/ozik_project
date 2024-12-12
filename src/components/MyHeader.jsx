@@ -5,10 +5,10 @@ export default function MyHeader({ ...user }) {
   return (
     <div className="my-header">
       <img
-        src={user.photoURL ? user.photoURL : profile}
+        src={user.user.photoURL ? user.user.photoURL : profile}
         className="my-img"
       />
-      <span>{user.displayName ? user.displayName : "사용자님"}</span>
+      <span>{user.user.displayName ? user.user.displayName : "사용자"}님</span>
     </div>
   );
 }

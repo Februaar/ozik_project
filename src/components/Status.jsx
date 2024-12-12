@@ -11,8 +11,12 @@ export function Status({ ...user }) {
 
   return (
     <div className="status" onClick={handleMyPageClick}>
-      <img src={user.photoURL ? user.photoURL : profile} />
-      <span>{user.displayName ? user.displayName : "사용자"}</span>
+      <img
+        src={user.photoURL ? user.photoURL : profile}
+        width={"24px"}
+        height={"24px"}
+      />
+      <span>{user.displayName ? user.displayName : "사용자"}님님</span>
     </div>
   );
 }

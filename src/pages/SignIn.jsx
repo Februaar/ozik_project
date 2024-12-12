@@ -1,5 +1,3 @@
-import "../styles/signin.scss";
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -9,26 +7,25 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase-config";
 import { saveUserInfoToFirestore } from "../../firebase-auth";
+import "../styles/account.scss";
 
 function SignInPage() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleMainClick = () => {
-    navigate("/");
-  };
+  const navigate = useNavigate();
 
   const handleSignupClick = () => {
     navigate("/signup");
   };
 
-  const handleLogin = () => {
+  // 이메일/비밀번호 로그인
+  const handleLogin = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
+      .then((result) => {
+        const user = result.user;
         console.log("로그인 성공:", user);
 
+        // Firestore에 사용자 정보 저장
         saveUserInfoToFirestore(
           user.uid,
           user.email,
@@ -43,13 +40,15 @@ function SignInPage() {
       });
   };
 
+  // 구글 소셜 로그인
   const handleGoogleLogin = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log("로그인 성공:", user);
+      .then((result) => {
+        const user = result.user;
+        console.log("구글 로그인 성공:", user);
 
+        // Firestore에 사용자 정보 저장
         saveUserInfoToFirestore(
           user.uid,
           user.email,
@@ -60,52 +59,54 @@ function SignInPage() {
         navigate("/");
       })
       .catch((err) => {
-        console.log("로그인 실패:", err);
+        console.log("구글 로그인 실패:", err);
       });
   };
 
   return (
-    <>
-      <div className="signin-header">
-        <span onClick={handleMainClick} className="signin-title">
-          OZIK
-        </span>
-        <span className="signin-title">나를 위한 시간</span>
+    <div className="account-container">
+      <div className="account-header">
+        <h4>OZIK</h4>
+        <span>나를 위한 시간</span>
       </div>
-      <div className="signin-container">
-        <div className="signin-input-area">
-          <div className="signin-input-content">
-            <span className="signin-content-title">이메일</span>
+      <div className="account-form-area">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleLogin(email, password);
+          }}
+          className="account-form"
+        >
+          <div className="input-item">
+            <span>이메일</span>
             <input
               type="email"
               placeholder="올바른 이메일 형식으로 작성해주세요"
-              className="signin-input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="signin-input-content">
-            <span className="signin-content-title">비밀번호</span>
+          <div className="input-item">
+            <span>비밀번호</span>
             <input
-              type="text"
+              type="password"
               placeholder="비밀번호를 작성해주세요"
-              className="signin-input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-        </div>
-        <div className="signin-button-area">
-          <button onClick={handleLogin} className="signin-button">
-            로그인
-          </button>
-          <button onClick={handleSignupClick}>회원가입</button>
-          <button onClick={handleGoogleLogin} className="signin-button">
-            Google 로그인
-          </button>
-        </div>
+          <div className="signin-button-area">
+            <div className="signin-buttons">
+              <button type="submit">로그인</button>
+              <button onClick={handleSignupClick} className="signup-button">
+                회원가입
+              </button>
+              <button onClick={handleGoogleLogin}>Google 로그인</button>
+            </div>
+          </div>
+        </form>
       </div>
-    </>
+    </div>
   );
 }
 

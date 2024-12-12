@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/edit.scss";
 import { Password } from "./ui/password";
 import { validatePassword } from "../utils/password";
@@ -9,6 +10,7 @@ export default function ProfileEdit() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
+  const navigate = useNavigate();
 
   const handleNicknameChange = (e) => {
     setNickname(e.target.value);
@@ -64,6 +66,11 @@ export default function ProfileEdit() {
       return;
     }
 
+    if (password !== confirmPassword) {
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
     // 에러 상태 확인
     if (passwordError || confirmPasswordError) {
       alert("입력된 비밀번호를 확인해주세요.");
@@ -72,6 +79,17 @@ export default function ProfileEdit() {
 
     // 성공 처리
     alert("프로필이 성공적으로 수정되었습니다.");
+    navigate("/");
+  };
+
+  const isFormValid = () => {
+    return (
+      password &&
+      confirmPassword &&
+      nickname &&
+      !passwordError &&
+      !confirmPasswordError
+    );
   };
 
   return (
@@ -103,20 +121,8 @@ export default function ProfileEdit() {
         <div className="edit-button">
           <button
             type="submit"
-            disabled={
-              !password ||
-              !confirmPassword ||
-              passwordError ||
-              confirmPasswordError
-            }
-            className={
-              !password ||
-              !confirmPassword ||
-              passwordError ||
-              confirmPasswordError
-                ? "disabled-button"
-                : "active-button"
-            }
+            disabled={isFormValid()}
+            className={isFormValid() ? "active-button" : "disabled-button"}
           >
             수정하기
           </button>
