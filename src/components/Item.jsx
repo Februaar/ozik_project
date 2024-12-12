@@ -34,6 +34,39 @@ ProductCard.propTypes = {
   }),
 };
 
+export const PurchasedCard = ({ item }) => {
+  if (!item?.product) {
+    return <li className="ordered-item">상품 데이터가 없습니다.</li>;
+  }
+  console.log(item);
+
+  return (
+    <li className="ordered-item">
+      <img
+        src={item.product.image || "placeholder.jpg"}
+        alt={item.product.name || "상품 이미지"}
+        className="item-img"
+      />
+      <div className="item-detail">
+        <p className="detail">{item.product.name}</p>
+        <p className="detail">수량: {item.quantity}</p>
+        <p className="detail">총액: {item.totalAmount} 원</p>
+      </div>
+    </li>
+  );
+};
+
+PurchasedCard.propTypes = {
+  item: PropTypes.shape({
+    product: PropTypes.shape({
+      image: PropTypes.string.isRequired, // 상품 이미지 URL
+      name: PropTypes.string.isRequired, // 상품 이름
+    }).isRequired,
+    quantity: PropTypes.number.isRequired, // 수량
+    totalAmount: PropTypes.number.isRequired, // 총액
+  }).isRequired,
+};
+
 // export function PurchaseItem({ item }) {
 //   return (
 //     <li className="ordered-item">

@@ -13,8 +13,8 @@ export const DataProvider = ({ children }) => {
     best: [],
   });
   const [carouselData, setCarouselData] = useState([]);
-  const [loading, setLoading] = useState({
-  });
+  const [purchasedData, setPurchasedData] = useState([]);
+  const [loading, setLoading] = useState({});
 
   const fetchAllData = async () => {
     try {
@@ -52,13 +52,29 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  const fetchPurchasedData = async () => {
+    try {
+      const res = await axios.get(
+        "https://breezy-equatorial-bag.glitch.me/purchases"
+      );
+      setPurchasedData(res.data);
+    } catch (err) {
+      console.error("Error fetching product:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     fetchAllData();
     fetchCarouselData();
+    fetchPurchasedData();
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, carouselData, loading }}>
+    <DataContext.Provider
+      value={{ data, carouselData, purchasedData, loading }}
+    >
       {children}
     </DataContext.Provider>
   );

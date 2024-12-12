@@ -1,50 +1,48 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-// import { PurchaseItem } from "../components/Item";
-import "../styles/my.scss";
+import { useContext } from "react";
+import { DataContext } from "../context/context";
+import PropTypes from "prop-types";
+import "../styles/purchaseList.scss";
+import { PurchasedCard } from "./Item";
 
-function PurchaseList() {
-  const [purchases, setPurchases] = useState([]);
+export default function PurchaseList() {
+  const { purchasedData } = useContext(DataContext);
 
-  useEffect(() => {
-    const fetchPurchasedProductData = async () => {
-      try {
-        const res = await axios.get(
-          "https://breezy-equatorial-bag.glitch.me/purchases"
-        );
-        setPurchases(res.data);
-      } catch (err) {
-        console.error("Error fetching product:", err);
-      }
-    };
-
-    fetchPurchasedProductData();
-  }, []);
+  if (!purchasedData || purchasedData.length === 0) {
+    return <p className="loading">구매하신 상품이 없습니다.</p>;
+  }
 
   return (
-    <>
-      <p className="my-nav-title">구매 내역</p>
-      {purchases.length === 0 ? (
-        <p className="no-data">구매하신 상품이 없습니다.</p>
-      ) : (
-        <div className="my-purchase-container">
-          {purchases.map((purchase) => (
-            <div key={purchase.id} className="ordered-box">
-              <h3 className="ordered-number">주문 번호: {purchase.id}</h3>
-              <ul className="ordered-list">
-                {purchase.products.map((item) => (
-                  <PurchaseItem key={item.id} item={item} />
-                ))}
-              </ul>
-              <p className="ordered-amount">
-                총 주문 금액: {purchase.totalAmounts} 원
-              </p>
+    <div className="purchase-list-container">
+      <h3>구매 내역</h3>
+      <div className="purchase-list-item">
+        {purchasedData.map((item) => (
+          <div key={item.id} className="ordered-box">
+            <div className="ordered-number">
+              <span>주문 번호: {item.id}</span>
             </div>
-          ))}
-        </div>
-      )}
-    </>
+            <ul className="ordered-list">
+              <PurchasedCard item={item} />
+            </ul>
+            <div className="ordered-total-amount">
+              <span>총 주문 금액: {item.totalAmounts} 원</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
-export default PurchaseList;
+PurchaseList.propTypes = {
+  purchasedData: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      totalAmounts: PropTypes.number.isRequired,
+      product: PropTypes.shape({
+        image: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+      }).isRequired,
+      quantity: PropTypes.number.isRequired,
+    })
+  ),
+};

@@ -103,9 +103,17 @@ export default function ProfileEdit() {
         <div className="edit-button">
           <button
             type="submit"
-            disabled={passwordError || confirmPasswordError}
+            disabled={
+              !password ||
+              !confirmPassword ||
+              passwordError ||
+              confirmPasswordError
+            }
             className={
-              passwordError || confirmPasswordError
+              !password ||
+              !confirmPassword ||
+              passwordError ||
+              confirmPasswordError
                 ? "disabled-button"
                 : "active-button"
             }

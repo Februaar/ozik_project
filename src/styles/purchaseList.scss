@@ -1,0 +1,41 @@
+@import "_variables";
+
+.purchase-list-container {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  min-height: 60vh;
+  h3 {
+    padding-bottom: 3rem;
+  }
+  .purchase-list-item {
+    .ordered-box {
+      padding: 16px 0;
+      display: grid;
+      grid-template-rows: 0.2fr 3fr 0.2fr;
+      gap: 14px;
+      overflow-x: auto;
+      white-space: nowrap;
+      border-bottom: 1px solid $gray-color;
+      .ordered-number {
+        font-weight: 500;
+      }
+      .ordered-list {
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        justify-items: center;
+        padding: 5px 10px;
+        background-color: $gray-lighter-color;
+        .ordered-item {
+          font-size: 14px;
+          background-color: transparent;
+          .item-img {
+          }
+          .item-detail {
+            .detail {
+            }
+          }
+        }
+      }
+    }
+  }
+}

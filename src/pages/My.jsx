@@ -1,72 +1,28 @@
-// import { useState } from "react";
-// import { Link, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/my.scss";
-// import { profile } from "../img/index";
-// import { useAuth } from "../AuthContext";
-import ProfileEdit from "../components/ProfileEdit";
-// import PurchaseList from "../components/PurchaseList";
-// import CartList from "../components/CartList";
-// import SignIn from "./SignIn";
+import { useAuth } from "../AuthContext";
+import MyHeader from "../components/MyHeader";
+import MyNav from "../components/MyNav";
 
 function MyPage() {
-  // const { user } = useAuth();
-  // const [isSelected, setIsSelected] = useState(null);
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
-  // const handleNavClick = (navName) => {
-  //   setIsSelected(navName);
-  // };
+  useEffect(() => {
+    if (!user) {
+      navigate("/signin");
+    }
+  }, [user, navigate]);
 
   return (
     <>
-      <ProfileEdit />
-      {/* {user ? (
+      {user && (
         <>
-          <div className="my-profile-container">
-            <img
-              src={user.photoURL ? user.photoURL : profile}
-              className="profile-img"
-            />
-            <span className="nickname">{user.displayName}</span>
-          </div>
-          <nav className="my-nav-container">
-            <Link
-              to="/my/profile"
-              className={`nav-button${
-                isSelected === "profile" ? " selected" : ""
-              }`}
-              onClick={() => handleNavClick("profile")}
-            >
-              프로필
-            </Link>
-            <Link
-              to="/my/purchase"
-              className={`nav-button${
-                isSelected === "purchase" ? " selected" : ""
-              }`}
-              onClick={() => handleNavClick("purchase")}
-            >
-              구매내역
-            </Link>
-            <Link
-              to="/my/cart"
-              className={`nav-button${
-                isSelected === "cart" ? " selected" : ""
-              }`}
-              onClick={() => handleNavClick("cart")}
-            >
-              장바구니
-            </Link>
-          </nav>
-          <Routes>
-            <Route path="" element={<EditProfile />} />
-            <Route path="profile" element={<EditProfile />} />
-            <Route path="purchase" element={<PurchaseList />} />
-            <Route path="cart" element={<CartList />} />
-          </Routes>
+          <MyHeader user={user} />
+          <MyNav />
         </>
-      ) : (
-        <SignIn />
-      )} */}
+      )}
     </>
   );
 }
