@@ -9,7 +9,10 @@
     font-weight: light;
   }
   .logout-button {
-    font-size: 13px;
     cursor: pointer;
+    span {
+      font-size: 13px;
+      color: #508cc1;
+    }
   }
 }

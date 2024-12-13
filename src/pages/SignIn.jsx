@@ -33,6 +33,16 @@ function SignInPage() {
           user.photoURL
         );
 
+        sessionStorage.setItem(
+          "user",
+          JSON.stringify({
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+          })
+        );
+
         navigate("/");
       })
       .catch((err) => {
@@ -54,6 +64,16 @@ function SignInPage() {
           user.email,
           user.displayName,
           user.photoURL
+        );
+
+        sessionStorage.setItem(
+          "user",
+          JSON.stringify({
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+          })
         );
 
         navigate("/");
