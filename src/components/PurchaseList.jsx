@@ -10,6 +10,7 @@ export default function PurchaseList() {
   if (!purchasedData || purchasedData.length === 0) {
     return <p className="loading">구매하신 상품이 없습니다.</p>;
   }
+  console.log(purchasedData);
 
   return (
     <div className="purchase-list-container">
@@ -21,7 +22,9 @@ export default function PurchaseList() {
               <span>주문 번호: {item.id}</span>
             </div>
             <ul className="ordered-list">
-              <PurchasedCard item={item} />
+              {item.products.map((product) => (
+                <PurchasedCard product={product} />
+              ))}
             </ul>
             <div className="ordered-total-amount">
               <span>총 주문 금액: {item.totalAmounts} 원</span>
