@@ -9,7 +9,7 @@ import { auth } from "../../firebase-config";
 import { saveUserInfoToFirestore } from "../../firebase-auth";
 import "../styles/account.scss";
 
-function SignInPage() {
+export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -129,5 +129,3 @@ function SignInPage() {
     </div>
   );
 }
-
-export default SignInPage;

@@ -42,17 +42,16 @@ export const PurchasedCard = ({ product }) => {
 
   return (
     <li className="ordered-item">
-      <img
-        src={product.product.image || "placeholder.jpg"}
-        alt={product.product.name || "상품 이미지"}
-        width={"180px"}
-        height={"180px"}
-        className="item-img"
-      />
+      <div className="item-img">
+        <img
+          src={product.product.image || "placeholder.jpg"}
+          alt={product.product.name || "상품 이미지"}
+        />
+      </div>
       <div className="item-detail">
-        <p className="detail">{product.product.name}</p>
-        <p className="detail">수량: {product.quantity}</p>
-        <p className="detail">총액: {product.totalAmount} 원</p>
+        <p>{product.product.name}</p>
+        <p>수량: {product.quantity}</p>
+        <p>총액: {product.totalAmount} 원</p>
       </div>
     </li>
   );
@@ -73,27 +72,6 @@ PurchasedCard.propTypes = {
     totalAmount: PropTypes.number.isRequired,
   }).isRequired,
 };
-
-// export function PurchaseItem({ item }) {
-//   return (
-//     <li className="ordered-item">
-//       <img
-//         src={item.product.image}
-//         alt={item.product.name}
-//         className="item-img"
-//       />
-//       <div className="item-detail">
-//         <p className="detail">{item.product.name}</p>
-//         <p className="detail">수량: {item.quantity}</p>
-//         <p className="detail">총액: {item.totalAmount} 원</p>
-//       </div>
-//     </li>
-//   );
-// }
-
-// PurchaseItem.propTypes = {
-//   item: PropTypes.object.isRequired,
-// };
 
 // export function CartItem({
 //   product,

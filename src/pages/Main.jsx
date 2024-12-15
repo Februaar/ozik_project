@@ -4,7 +4,7 @@ import Navigation from "../components/Navigation";
 import Carousel from "../components/Carousel";
 import Category from "../components/Category";
 
-function MainPage() {
+export default function MainPage() {
   const { menuOpen } = useMenu();
 
   return (
@@ -15,5 +15,3 @@ function MainPage() {
     </div>
   );
 }
-
-export default MainPage;

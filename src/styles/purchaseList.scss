@@ -20,21 +20,12 @@
         font-weight: 500;
       }
       .ordered-list {
-        display: grid;
-        grid-template-columns: 2fr 2fr 1fr;
-        justify-items: center;
-        padding: 5px 10px;
-        background-color: $gray-lighter-color;
-        .ordered-item {
-          font-size: 14px;
-          background-color: transparent;
-          .item-img {
-          }
-          .item-detail {
-            .detail {
-            }
-          }
-        }
+        display: flex;
+        justify-content: space-around;
+        gap: 1rem;
+        padding: 1rem;
+        border: 1px solid #c9c9c9;
+        border-radius: 10px;
       }
     }
   }

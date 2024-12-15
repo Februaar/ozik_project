@@ -5,7 +5,7 @@ import { useAuth } from "../AuthContext";
 import MyHeader from "../components/MyHeader";
 import MyNav from "../components/MyNav";
 
-function MyPage() {
+export default function MyPage() {
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -26,5 +26,3 @@ function MyPage() {
     </>
   );
 }
-
-export default MyPage;

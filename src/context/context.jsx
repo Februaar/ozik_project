@@ -1,10 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
-// Context 생성
 export const DataContext = createContext();
 
-// Provider 컴포넌트
 // eslint-disable-next-line react/prop-types
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState({

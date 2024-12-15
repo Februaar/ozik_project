@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import "../styles/account.scss";
 import { validatePassword } from "../utils/password";
 
-function SignUpPage() {
+export default function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -156,5 +156,3 @@ function SignUpPage() {
     </div>
   );
 }
-
-export default SignUpPage;

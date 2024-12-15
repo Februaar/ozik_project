@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/search.scss";
 import { close, cancel } from "../img/index";
 
-function SearchPage() {
+export default function SearchPage() {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -36,5 +36,3 @@ function SearchPage() {
     </>
   );
 }
-
-export default SearchPage;
