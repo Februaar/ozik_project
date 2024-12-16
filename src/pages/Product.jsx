@@ -18,17 +18,11 @@ export default function ProductPage() {
   const { productId } = useParams();
   const navigate = useNavigate();
 
-  // const data = [
-  //   {
-  //     type: "coffee",
-  //     message: "☕ 커피로 하루를 시작해보세요",
-  //   },
-  //   {
-  //     type: "snack",
-  //     message: "🍫 입맛 없을 땐 달달한 거 어때요?",
-  //   },
-  //   { type: "drink", message: "🍺 오늘 하루도 수고했어요" },
-  // ];
+  const messages = {
+    coffee: "☕ 커피로 하루를 시작해보세요",
+    snack: "🍫 입맛 없을 땐 달달한 거 어때요?",
+    drinks: "🍺 오늘 하루도 수고했어요",
+  };
 
   useEffect(() => {
     const fetchProductData = async () => {
@@ -80,13 +74,7 @@ export default function ProductPage() {
 
   return (
     <div className="product-page-container">
-      <h3 className="product-page-title">
-        {product.type === "coffee"
-          ? "☕ 커피로 하루를 시작해보세요"
-          : product.type === "snack"
-          ? "🍫 입맛 없을 땐 달달한 거 어때요?"
-          : "🍺 오늘 하루도 수고했어요"}
-      </h3>
+      <h3 className="product-page-title">{messages[product.type]}</h3>
 
       <div className="product-detail-container">
         <div className="detail-img-area">

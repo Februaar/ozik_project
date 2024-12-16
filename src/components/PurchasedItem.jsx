@@ -1,6 +1,6 @@
 import "../styles/purchaseList.scss";
 import PropTypes from "prop-types";
-import { PurchasedCard } from "./Item";
+import PurchasedCard from "./PurchasedCard";
 
 export default function PurchasedItem({ datas }) {
   return (

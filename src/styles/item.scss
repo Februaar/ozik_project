@@ -1,5 +1,6 @@
 @use "_variables" as vars;
 
+// ProductCard
 .product-card {
   border: 1px solid vars.$border-color;
   border-radius: 8px;
@@ -36,6 +37,7 @@
   }
 }
 
+// PurchasedCard
 .ordered-item {
   .item-img {
     img {

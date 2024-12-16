@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/edit.scss";
-import { Password } from "./ui/password";
-import { validatePassword } from "../utils/password";
+import "../../styles/edit.scss";
+import { Password } from "../ui/password";
+import { validatePassword } from "../../utils/password";
 
-export default function ProfileEdit() {
+const ProfileEdit = () => {
   const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -130,4 +130,6 @@ export default function ProfileEdit() {
       </form>
     </div>
   );
-}
+};
+
+export default ProfileEdit;

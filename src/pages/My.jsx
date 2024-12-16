@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/my.scss";
 import { useAuth } from "../AuthContext";
-import MyHeader from "../components/MyHeader";
-import MyNav from "../components/MyNav";
+import MyHeader from "../components/my/MyHeader";
+import MyNav from "../components/my/MyNav";
 
 export default function MyPage() {
   const { user } = useAuth();

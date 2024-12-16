@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartItem } from "../components/ui/item";
+import "../../styles/cartlist.scss";
+import CartItem from "./CartItem";
 
-function CartList() {
+const CartList = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [quantities, setQuantities] = useState([]);
@@ -12,7 +13,9 @@ function CartList() {
   useEffect(() => {
     const fetchCartData = async () => {
       try {
-        const res = await axios.get("https://breezy-equatorial-bag.glitch.me/cart");
+        const res = await axios.get(
+          "https://breezy-equatorial-bag.glitch.me/cart"
+        );
         setProducts(res.data);
 
         const initialQuantities = {};
@@ -89,7 +92,10 @@ function CartList() {
 
       await Promise.all(
         purchaseData.map(async (product) => {
-          await axios.post("https://breezy-equatorial-bag.glitch.me/purchased", product);
+          await axios.post(
+            "https://breezy-equatorial-bag.glitch.me/purchased",
+            product
+          );
         })
       );
 
@@ -126,6 +132,6 @@ function CartList() {
       )}
     </>
   );
-}
+};
 
 export default CartList;

@@ -4,7 +4,7 @@ import { auth } from "../../firebase-config";
 import { signOut } from "firebase/auth";
 import "../styles/footer.scss";
 
-export default function Footer() {
+function Footer() {
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -34,3 +34,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default Footer;

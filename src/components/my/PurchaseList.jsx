@@ -1,16 +1,15 @@
 import { useContext } from "react";
-import { DataContext } from "../context/context";
 import PropTypes from "prop-types";
-import "../styles/purchaseList.scss";
-import { PurchasedCard } from "./Item";
+import { DataContext } from "../../context/context";
+import "../../styles/purchaseList.scss";
+import PurchasedCard from "./PurchasedCard";
 
-export default function PurchaseList() {
+const PurchaseList = () => {
   const { purchasedData } = useContext(DataContext);
 
   if (!purchasedData || purchasedData.length === 0) {
     return <p className="loading">구매하신 상품이 없습니다.</p>;
   }
-  console.log(purchasedData);
 
   return (
     <div className="purchase-list-container">
@@ -23,7 +22,7 @@ export default function PurchaseList() {
             </div>
             <ul className="ordered-list">
               {item.products.map((product) => (
-                <PurchasedCard product={product} />
+                <PurchasedCard key={product.id} product={product} />
               ))}
             </ul>
             <div className="ordered-total-amount">
@@ -34,7 +33,7 @@ export default function PurchaseList() {
       </div>
     </div>
   );
-}
+};
 
 PurchaseList.propTypes = {
   purchasedData: PropTypes.arrayOf(
@@ -49,3 +48,5 @@ PurchaseList.propTypes = {
     })
   ),
 };
+
+export default PurchaseList;

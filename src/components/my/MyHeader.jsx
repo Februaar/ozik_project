@@ -1,9 +1,9 @@
-import "../styles/my.scss";
-import { profile } from "../img/index";
+import "../../styles/my.scss";
+import { profile } from "../../img/index";
 
-export default function MyHeader({ ...user }) {
+const MyHeader = ({ ...user }) => {
   return (
-    <div className="my-header">
+    <div className="my-header-container">
       <img
         src={user.user.photoURL ? user.user.photoURL : profile}
         width={"45px"}
@@ -14,3 +14,5 @@ export default function MyHeader({ ...user }) {
     </div>
   );
 }
+
+export default MyHeader;

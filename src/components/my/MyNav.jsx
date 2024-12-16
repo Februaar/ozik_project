@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
-import "../styles/my.scss";
-import ProfileEdit from "../components/ProfileEdit";
-import PurchaseList from "../components/PurchaseList";
-import CartList from "../components/CartList";
+import "../../styles/my.scss";
+import ProfileEdit from "../../components/my/ProfileEdit";
+import PurchaseList from "../../components/my/PurchaseList";
+import CartList from "../../components/my/CartList";
 
-export default function MyNav() {
+const MyNav = () => {
   const [isSelected, setIsSelected] = useState(null);
 
   const handleNavClick = (key) => {
@@ -59,4 +59,6 @@ export default function MyNav() {
       </Routes>
     </>
   );
-}
+};
+
+export default MyNav;

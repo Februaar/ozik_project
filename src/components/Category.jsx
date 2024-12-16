@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/category.scss";
 
-export default function Category() {
+const Category = () => {
   const navigate = useNavigate();
 
   const menudata = [
@@ -32,4 +32,6 @@ export default function Category() {
       </div>
     </div>
   );
-}
+};
+
+export default Category;

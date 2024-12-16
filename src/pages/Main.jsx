@@ -1,6 +1,6 @@
 import "../styles/main.scss";
-import Navigation from "../components/Navigation";
-import Carousel from "../components/Carousel";
+import Navigation from "../components/main/Navigation";
+import Carousel from "../components/main/Carousel";
 
 export default function MainPage() {
 

@@ -1,4 +1,4 @@
-@import "_variables";
+@use "_variables" as vars;
 
 .purchase-list-container {
   margin-top: 1rem;
@@ -15,7 +15,7 @@
       gap: 14px;
       overflow-x: auto;
       white-space: nowrap;
-      border-bottom: 1px solid $gray-color;
+      border-bottom: 1px solid vars.$gray-color;
       .ordered-number {
         font-weight: 500;
       }

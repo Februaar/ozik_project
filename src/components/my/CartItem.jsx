@@ -1,14 +1,15 @@
 import PropTypes from "prop-types";
 import { add, remove } from "../../img/index";
+import "../../styles/cartlist.scss";
 
-export function CartItem({
+const CartItem = ({
   product,
   quantity,
   totalAmount,
   onMinusQuantity,
   onPlusQuantity,
   onDelete,
-}) {
+}) => {
   return (
     <div key={product.id} className="cart-item">
       <img src={product.product.image} className="item-img" />
@@ -29,7 +30,7 @@ export function CartItem({
       </button>
     </div>
   );
-}
+};
 
 CartItem.propTypes = {
   product: PropTypes.object.isRequired,
@@ -39,3 +40,5 @@ CartItem.propTypes = {
   onPlusQuantity: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
 };
+
+export default CartItem;
