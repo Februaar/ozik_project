@@ -1,12 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { add, remove } from "../img";
 import "../styles/product.scss";
 
 const Product = () => {
-  const navigate = useNavigate();
-
   const handlePlusQuantity = () => {
     setQuantity(quantity + 1);
     setTotalAmount((quantity + 1) * product.price);

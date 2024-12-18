@@ -2,7 +2,7 @@ import "../styles/purchaseList.scss";
 import PropTypes from "prop-types";
 import PurchasedCard from "./PurchasedCard";
 
-export default function PurchasedItem({ datas }) {
+const PurchasedItem = ({ datas }) => {
   return (
     <div className="purchase-list-item">
       {Array.isArray(datas) ? (
@@ -24,7 +24,7 @@ export default function PurchasedItem({ datas }) {
       )}
     </div>
   );
-}
+};
 
 PurchasedItem.propTypes = {
   datas: PropTypes.arrayOf(
@@ -34,3 +34,5 @@ PurchasedItem.propTypes = {
     })
   ).isRequired,
 };
+
+export default PurchasedItem;

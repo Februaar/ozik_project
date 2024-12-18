@@ -28,7 +28,7 @@ const Carousel = () => {
 
   const handleDetailClick = () => {
     const selectedItem = carouselData[currentIndex];
-    navigate(`/category-list/${selectedItem.type}`);
+    navigate(`/product-list/${selectedItem.type}`);
   };
 
   if (loading) {
