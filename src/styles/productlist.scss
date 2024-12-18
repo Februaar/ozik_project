@@ -1,0 +1,25 @@
+.product-list-container {
+  padding: 1rem 2rem;
+  min-height: 60vh;
+  .product-list-title {
+    width: fit-content;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+    span {
+      background-color: #508cc1;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+    }
+  }
+  .product-cards-area {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (min-width: 1280px) {
+    .product-cards-area {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

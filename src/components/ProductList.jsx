@@ -1,50 +1,43 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-// import { ProductItem } from "../components/Item";
+import "../styles/productlist.scss";
+import { DataContext } from "../context/context";
+import ProductCard from "../components/main/ProductCard";
 
 const ProductList = () => {
+  const { data = [], loading } = useContext(DataContext);
   const { type } = useParams();
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchProductData = async () => {
-      try {
-        const res = await axios.get(
-          "https://breezy-equatorial-bag.glitch.me/products"
-        );
-        setProducts(res.data);
-        setLoading(false);
-      } catch (err) {
-        console.error("Error fetching products:", err);
-      }
-    };
-
-    fetchProductData();
-  }, []);
+    if (Array.isArray(data.products)) {
+      setProducts(data.products);
+    }
+  }, [data]);
 
   const filteredProducts =
-    type === "all"
+    type === "all" || !type
       ? products
       : products.filter((product) => product.type === type);
 
+  if (loading) {
+    return <p className="loading">상품을 조회중입니다.</p>;
+  }
+
   return (
     <div className="product-list-container">
-      <div className="title-area">
-        <h3 className="title">{type && `${type}`}</h3>
-      </div>
-      {/* {loading ? (
-        <p className="loading">상품 데이터를 불러오는 중입니다.</p>
-      ) : (
-        <div className="product-item-container">
-          {filteredProducts.map((product) => (
-            <ProductItem key={product.id} product={product} />
-          ))}
-        </div>
-      )} */}
+      <h3 className="product-list-title">
+        <span>{type && `${type}`}</span>
+      </h3>
+      <ul className="product-cards-area">
+        {filteredProducts.map((product, index) => (
+          <li key={index}>
+            <ProductCard {...product} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
 export default ProductList;
