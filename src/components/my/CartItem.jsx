@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { add, remove } from "../../img/index";
-import "../../styles/cartlist.scss";
+import "../../styles/cartitemslist.scss";
 
 const CartItem = ({
   product,
@@ -11,23 +11,34 @@ const CartItem = ({
   onDelete,
 }) => {
   return (
-    <div key={product.id} className="cart-item">
-      <img src={product.product.image} className="item-img" />
-      <div className="quantity-area">
-        <div className="quantity-controls">
-          <button onClick={onMinusQuantity}>
-            <img src={remove} width={18} height={18} />
-          </button>
-          <span className="item-total">{quantity}</span>
-          <button onClick={onPlusQuantity}>
-            <img src={add} width={18} height={18} />
-          </button>
-        </div>
-        <span>{totalAmount} 원</span>
+    <div key={product.id} className="cart-item-container">
+      <div>
+        <img
+          src={product.product.image}
+          width={180}
+          height={180}
+          className="item-img"
+        />
       </div>
-      <button onClick={onDelete} className="item-delete">
-        삭제
-      </button>
+      <div className="item-quantity">
+        <div className="quantity-controls">
+          <div onClick={onMinusQuantity} className="quantity-button">
+            <img src={remove} width={18} height={18} />
+          </div>
+          <div className="quantity-total">
+            <span>{quantity}</span>
+          </div>
+          <div onClick={onPlusQuantity} className="quantity-button">
+            <img src={add} width={18} height={18} />
+          </div>
+        </div>
+        <div className="total-amounts">
+          <span>{totalAmount}</span> 원
+        </div>
+      </div>
+      <div onClick={onDelete} className="item-delete">
+        <span>삭제</span>
+      </div>
     </div>
   );
 };

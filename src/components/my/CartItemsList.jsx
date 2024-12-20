@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../styles/cartlist.scss";
+import "../../styles/cartitemslist.scss";
 import CartItem from "./CartItem";
 
-const CartList = () => {
-  const navigate = useNavigate();
+const CartItemsList = () => {
   const [products, setProducts] = useState([]);
   const [quantities, setQuantities] = useState([]);
   const [totalAmounts, setTotalAmounts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCartData = async () => {
@@ -106,32 +106,26 @@ const CartList = () => {
   };
 
   return (
-    <>
-      <div className="my-nav-title">장바구니 내역</div>
-      {products.length === 0 ? (
-        <p className="no-data">장바구니에 담긴 상품이 없습니다.</p>
-      ) : (
-        <>
-          <div className="my-cart-container">
-            {products.map((product) => (
-              <CartItem
-                key={product.id}
-                product={product}
-                quantity={quantities[product.id]}
-                totalAmount={totalAmounts[product.id]}
-                onMinusQuantity={() => handleMinusQuantity(product.id)}
-                onPlusQuantity={() => handlePlusQuantity(product.id)}
-                onDelete={() => handleDelete(product.id)}
-              />
-            ))}
-          </div>
-          <div className="order-button">
-            <button onClick={handlePurchase}>전체 구매하기</button>
-          </div>
-        </>
-      )}
-    </>
+    <div className="cart-list-container">
+      <h3>장바구니 내역</h3>
+      <div className="cart-list-items">
+        {products.map((product) => (
+          <CartItem
+            key={product.id}
+            product={product}
+            quantity={quantities[product.id]}
+            totalAmount={totalAmounts[product.id]}
+            onMinusQuantity={() => handleMinusQuantity(product.id)}
+            onPlusQuantity={() => handlePlusQuantity(product.id)}
+            onDelete={() => handleDelete(product.id)}
+          />
+        ))}
+      </div>
+      <div className="order-button">
+        <button onClick={handlePurchase}>전체 구매하기</button>
+      </div>
+    </div>
   );
 };
 
-export default CartList;
+export default CartItemsList;

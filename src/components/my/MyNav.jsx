@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import "../../styles/my.scss";
 import ProfileEdit from "../../components/my/ProfileEdit";
-import PurchaseList from "../../components/my/PurchaseList";
-import CartList from "../../components/my/CartList";
+import PurchasedList from "../../components/my/PurchasedList";
+import CartItemsList from "../../components/my/CartItemsList";
 
 const MyNav = () => {
   const [isSelected, setIsSelected] = useState(null);
@@ -23,13 +23,13 @@ const MyNav = () => {
       path: "/my/purchase",
       key: "purchase",
       label: "구매내역",
-      component: PurchaseList,
+      component: PurchasedList,
     },
     {
       path: "/my/cart",
       key: "cart",
       label: "장바구니",
-      component: CartList,
+      component: CartItemsList,
     },
   ];
 

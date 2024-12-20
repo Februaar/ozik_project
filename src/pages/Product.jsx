@@ -6,14 +6,15 @@ import ProductDetail from "../components/product/ProductDetail";
 import QuantityControl from "../components/product/QuantityControl";
 import CartButton from "../components/product/CartButton";
 import PurchaseButton from "../components/product/PurchaseButton";
+import PrivateRoute from "../components/PrivateRoute";
 
 export default function ProductPage() {
   const [product, setProduct] = useState("");
   const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [totalAmount, setTotalAmount] = useState();
-  const [isPurchasing, setIsPurchasing] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
+  const [isPurchasing, setIsPurchasing] = useState(false);
 
   const { productId } = useParams();
   const navigate = useNavigate();
@@ -46,7 +47,6 @@ export default function ProductPage() {
     }
   }, [product, quantity]);
 
-  const handlePurchaseClick = () => setIsPurchasing(!isPurchasing);
   const handleCartClick = async () => {
     try {
       const res = await axios.post(
@@ -65,6 +65,15 @@ export default function ProductPage() {
       setIsPurchasing(false);
     } catch (err) {
       console.error("상품을 추가하는 중 오류 발생:", err);
+    }
+  };
+
+  const handlePurchaseClick = () => {
+    try {
+      navigate("/my/purchase");
+      setIsPurchasing(!isPurchasing); // TODO: 구매 확인 팝업 띄우기 => 바로 구매
+    } catch (err) {
+      console.error("상품을 구매하는 중 오류 발생:", err);
     }
   };
 

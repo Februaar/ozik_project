@@ -6,6 +6,7 @@ import Category from "./components/Category";
 import Hr from "./components/ui/hr";
 import Footer from "./components/Footer";
 import ProductList from "./components/ProductList";
+import PrivateRoute from "./components/PrivateRoute";
 
 import MainPage from "./pages/Main";
 import SignUpPage from "./pages/SignUp";
@@ -25,7 +26,14 @@ function App() {
         <Route path="/*" element={<MainPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/signin" element={<SignInPage />} />
-        <Route path="/my/*" element={<MyPage />} />
+        <Route
+          path="/my/*"
+          element={
+            <PrivateRoute>
+              <MyPage />
+            </PrivateRoute>
+          }
+        />
         {/* <Route path="/search" element={<SearchPage />} /> */}
         <Route path="/product-list/:type" element={<ProductList />} />
         <Route path="/product/:productId" element={<ProductPage />} />

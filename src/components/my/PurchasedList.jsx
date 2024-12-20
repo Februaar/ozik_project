@@ -1,10 +1,9 @@
 import { useContext } from "react";
-import PropTypes from "prop-types";
-import { DataContext } from "../../context/context";
 import "../../styles/purchaseList.scss";
+import { DataContext } from "../../context/context";
 import PurchasedCard from "./PurchasedCard";
 
-const PurchaseList = () => {
+const PurchasedList = () => {
   const { purchasedData } = useContext(DataContext);
 
   if (!purchasedData || purchasedData.length === 0) {
@@ -14,7 +13,7 @@ const PurchaseList = () => {
   return (
     <div className="purchase-list-container">
       <h3>구매 내역</h3>
-      <div className="purchase-list-item">
+      <div className="purchase-list-items">
         {purchasedData.map((item) => (
           <div key={item.id} className="ordered-box">
             <div className="ordered-number">
@@ -35,18 +34,4 @@ const PurchaseList = () => {
   );
 };
 
-PurchaseList.propTypes = {
-  purchasedData: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      totalAmounts: PropTypes.number.isRequired,
-      product: PropTypes.shape({
-        image: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-      }).isRequired,
-      quantity: PropTypes.number.isRequired,
-    })
-  ),
-};
-
-export default PurchaseList;
+export default PurchasedList;
