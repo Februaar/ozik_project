@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -35,42 +36,56 @@ const CartItemsList = () => {
   }, []);
 
   const handlePlusQuantity = (id) => {
-    setQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [id]: prevQuantities[id] + 1,
-    }));
-
-    setTotalAmounts((prevTotalAmounts) => ({
-      ...prevTotalAmounts,
-      [id]:
-        (quantities[id] + 1) *
-        products.find((product) => product.id === id).product.price,
-    }));
-  };
-
-  const handleMinusQuantity = (id) => {
-    if (quantities[id] > 1) {
-      setQuantities((prevQuantities) => ({
+    setQuantities((prevQuantities) => {
+      const newQuantities = {
         ...prevQuantities,
-        [id]: prevQuantities[id] - 1,
-      }));
-
+        [id]: prevQuantities[id] + 1,
+      };
       setTotalAmounts((prevTotalAmounts) => ({
         ...prevTotalAmounts,
         [id]:
-          (quantities[id] - 1) *
+          newQuantities[id] *
           products.find((product) => product.id === id).product.price,
       }));
-    }
+      return newQuantities;
+    });
+  };
+
+  const handleMinusQuantity = (id) => {
+    setQuantities((prevQuantities) => {
+      if (quantities[id] > 1) {
+        const newQuantities = {
+          ...prevQuantities,
+          [id]: prevQuantities[id] - 1,
+        };
+        setTotalAmounts((prevTotalAmounts) => ({
+          ...prevTotalAmounts,
+          [id]:
+            newQuantities[id] *
+            products.find((product) => product.id === id).product.price,
+        }));
+        return newQuantities;
+      }
+      return prevQuantities;
+    });
   };
 
   const handleDelete = async (id) => {
     try {
       await axios.delete(`https://breezy-equatorial-bag.glitch.me/cart/${id}`);
-
       setProducts((prevProducts) =>
         prevProducts.filter((product) => product.id !== id)
       );
+      setQuantities((prevQuantities) => {
+        const update = { ...prevQuantities };
+        delete update[id];
+        return update;
+      });
+      setTotalAmounts((prevTotalAmounts) => {
+        const update = { ...prevTotalAmounts };
+        delete update[id];
+        return update;
+      });
     } catch (error) {
       console.error("상품 정보를 삭제하는 중 오류 발생:", error);
     }
@@ -105,6 +120,14 @@ const CartItemsList = () => {
     }
   };
 
+  const TotalSum = ({ totalAmounts }) => {
+    const total = Object.values(totalAmounts).reduce(
+      (sum, value) => sum + value,
+      0
+    );
+    return <div className="total-sum">총액: {total}</div>;
+  };
+
   return (
     <div className="cart-list-container">
       <h3>장바구니 내역</h3>
@@ -121,6 +144,7 @@ const CartItemsList = () => {
           />
         ))}
       </div>
+      <TotalSum totalAmounts={totalAmounts} />
       <div className="order-button">
         <button onClick={handlePurchase}>전체 구매하기</button>
       </div>

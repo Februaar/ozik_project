@@ -22,13 +22,13 @@ const CartItem = ({
       </div>
       <div className="item-quantity">
         <div className="quantity-controls">
-          <div onClick={onMinusQuantity} className="quantity-button">
+          <div onClick={onMinusQuantity} className="control-button">
             <img src={remove} width={18} height={18} />
           </div>
           <div className="quantity-total">
             <span>{quantity}</span>
           </div>
-          <div onClick={onPlusQuantity} className="quantity-button">
+          <div onClick={onPlusQuantity} className="control-button">
             <img src={add} width={18} height={18} />
           </div>
         </div>
