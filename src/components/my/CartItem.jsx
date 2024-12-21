@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { add, remove } from "../../img/index";
 import "../../styles/cartitemslist.scss";
+import { add, remove } from "../../img/index";
 
 const CartItem = ({
   product,

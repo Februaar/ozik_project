@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import "../styles/category.scss";
+import "../styles/menubar.scss";
 
-const Category = () => {
+const MenuBar = () => {
   const navigate = useNavigate();
 
   const menudata = [
@@ -16,7 +16,7 @@ const Category = () => {
   };
 
   return (
-    <div className="category-container">
+    <div className="menu-backdrop">
       <div className="menu-container">
         <ul className="menu-popover">
           {menudata.map((data, index) => (
@@ -34,4 +34,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default MenuBar;

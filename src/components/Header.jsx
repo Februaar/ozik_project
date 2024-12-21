@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import { useMenu } from "../context/MenuContext";
-import "../styles/header.scss";
 import { menu } from "../img/index";
 import { Status } from "../components/Status";
 

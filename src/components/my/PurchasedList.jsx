@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import "../../styles/purchaseList.scss";
+import "../../styles/purchasedlist.scss";
 import { DataContext } from "../../context/context";
 import PurchasedCard from "./PurchasedCard";
 

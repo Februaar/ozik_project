@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useMenu } from "./context/MenuContext";
 import "./global.css";
+import "./App.css";
 import Header from "./components/Header";
-import Category from "./components/Category";
+import MenuBar from "./components/MenuBar";
 import Hr from "./components/ui/hr";
 import Footer from "./components/Footer";
 import ProductList from "./components/ProductList";
@@ -21,7 +22,7 @@ function App() {
   return (
     <Router>
       <Header />
-      {menuOpen && <Category />}
+      {menuOpen && <MenuBar />}
       <Routes>
         <Route path="/*" element={<MainPage />} />
         <Route path="/signup" element={<SignUpPage />} />

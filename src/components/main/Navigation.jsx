@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import "../../styles/navigation.scss";
 import { DataContext } from "../../context/context";
+import "../../styles/navigation.scss";
 import ProductCard from "./ProductCard";
 
 const Navigation = () => {
