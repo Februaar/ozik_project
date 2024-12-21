@@ -36,7 +36,7 @@ const CartItem = ({
           <span>{totalAmount}</span> 원
         </div>
       </div>
-      <div onClick={onDelete} className="item-delete">
+      <div onClick={onDelete} className="delete-button">
         <span>삭제</span>
       </div>
     </div>

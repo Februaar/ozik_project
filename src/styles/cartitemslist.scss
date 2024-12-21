@@ -75,7 +75,7 @@
           }
         }
       }
-      .item-delete {
+      .delete-button {
         span {
           padding: 6px 12px;
           border-radius: 3px;
@@ -83,6 +83,17 @@
           font-size: 14px;
         }
       }
+    }
+  }
+  .order-button {
+    width: fit-content;
+    margin-top: 1rem;
+    button {
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #ffffff;
+      background-color: #508cc1;
     }
   }
 }
