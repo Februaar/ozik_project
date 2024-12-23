@@ -23,6 +23,10 @@
         padding: 1rem 0;
         background-color: transparent;
         cursor: pointer;
+        border-bottom: 1px solid #c9c9c9;
+      }
+      .menu-list:last-child {
+        border: none;
       }
     }
     @media (min-width: 640px) and (max-width: 1279px) {

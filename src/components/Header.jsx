@@ -5,9 +5,9 @@ import { menu } from "../img/index";
 import { Status } from "../components/Status";
 
 function Header() {
+  const { toggleMenu } = useMenu();
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { toggleMenu } = useMenu();
 
   const handleSigninClick = () => {
     navigate("/signin");

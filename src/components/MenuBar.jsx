@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import { useMenu } from "./../context/MenuContext";
 import "../styles/menubar.scss";
 
 const MenuBar = () => {
+  const { closeMenu } = useMenu();
   const navigate = useNavigate();
 
   const menudata = [
@@ -13,11 +15,12 @@ const MenuBar = () => {
 
   const handleMenuClick = (type) => {
     navigate(`product-list/${type}`);
+    closeMenu();
   };
 
   return (
-    <div className="menu-backdrop">
-      <div className="menu-container">
+    <div className="menu-backdrop" onClick={closeMenu}>
+      <div className="menu-container" onClick={(e) => e.stopPropagation()}>
         <ul className="menu-popover">
           {menudata.map((data, index) => (
             <li

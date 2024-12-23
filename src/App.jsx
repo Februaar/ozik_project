@@ -17,12 +17,12 @@ import MyPage from "./pages/My";
 // import SearchPage from "./pages/Search";
 
 function App() {
-  const { menuOpen } = useMenu();
+  const { isMenuOpen } = useMenu();
 
   return (
     <Router>
       <Header />
-      {menuOpen && <MenuBar />}
+      {isMenuOpen && <MenuBar />}
       <Routes>
         <Route path="/*" element={<MainPage />} />
         <Route path="/signup" element={<SignUpPage />} />

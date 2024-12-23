@@ -4,12 +4,16 @@ const MenuContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const MenuProvider = ({ children }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const closeMenu = () => setIsMenuOpen(false);
+  const openMenu = () => setIsMenuOpen(true); // 강제로 열어야 할 경우우
 
   return (
-    <MenuContext.Provider value={{ menuOpen, toggleMenu }}>
+    <MenuContext.Provider
+      value={{ isMenuOpen, toggleMenu, closeMenu, openMenu }}
+    >
       {children}
     </MenuContext.Provider>
   );
