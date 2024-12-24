@@ -7,19 +7,23 @@
   h3 {
     padding-bottom: 3rem;
   }
-  .purchase-list-items {
-    .ordered-box {
-      padding: 16px 0;
+  .purchased-lists {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .purchased-item {
       display: grid;
       grid-template-rows: 0.2fr 3fr 0.2fr;
       gap: 14px;
       overflow-x: auto;
       white-space: nowrap;
       border-bottom: 1px solid vars.$gray-color;
-      .ordered-number {
-        font-weight: 500;
+      padding-bottom: 1rem;
+      .item-number {
+        font-weight: 600;
+        margin-left: 0.5rem;
       }
-      .ordered-list {
+      .item-lists {
         display: flex;
         justify-content: space-around;
         gap: 1rem;

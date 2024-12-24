@@ -17,7 +17,7 @@ const PurchasedCard = ({ product }) => {
       <div className="item-detail">
         <p>{product.product.name}</p>
         <p>수량: {product.quantity}</p>
-        <p>총액: {product.totalAmount} 원</p>
+        <p>금액: {product.totalAmount} 원</p>
       </div>
     </li>
   );

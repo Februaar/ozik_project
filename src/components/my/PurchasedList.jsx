@@ -13,13 +13,14 @@ const PurchasedList = () => {
   return (
     <div className="purchase-list-container">
       <h3>구매 내역</h3>
-      <div className="purchase-list-items">
+      <div className="purchased-lists">
         {purchasedData.map((item) => (
-          <div key={item.id} className="ordered-box">
-            <div className="ordered-number">
-              <span>주문 번호: {item.id}</span>
+          <div key={item.id} className="purchased-item">
+            <div>
+              주문 번호:
+              <span className="item-number">{item.id}</span>
             </div>
-            <ul className="ordered-list">
+            <ul className="item-lists">
               {item.products.map((product) => (
                 <PurchasedCard key={product.id} product={product} />
               ))}
