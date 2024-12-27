@@ -6,7 +6,6 @@ import ProductDetail from "../components/product/ProductDetail";
 import QuantityControl from "../components/product/QuantityControl";
 import CartButton from "../components/product/CartButton";
 import PurchaseButton from "../components/product/PurchaseButton";
-import PrivateRoute from "../components/PrivateRoute";
 
 export default function ProductPage() {
   const [product, setProduct] = useState("");

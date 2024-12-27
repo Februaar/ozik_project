@@ -62,7 +62,6 @@ export default function SignUpPage() {
         password
       );
       await updateProfile(result.user, { displayName });
-
       alert("회원가입 성공!");
       navigate("/");
     } catch (err) {
@@ -146,7 +145,7 @@ export default function SignUpPage() {
             <button
               type="submit"
               className={isFormValid() ? "active-button" : "disabled-button"}
-              disabled={isFormValid()}
+              disabled={!isFormValid()}
             >
               {loading ? "처리 중..." : "회원가입"}
             </button>

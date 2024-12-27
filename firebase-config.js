@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -13,6 +13,14 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("사용자 인증됨:", user.uid);
+  } else {
+    console.log("사용자가 인증되지 않음");
+  }
+});
+signOut(auth).then(() => console.log("로그아웃 완료"));
 const db = getFirestore(app);
 
 export { app, auth, db };
