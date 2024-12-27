@@ -10,11 +10,13 @@ const PurchasedList = () => {
     return <p className="loading">구매하신 상품이 없습니다.</p>;
   }
 
+  const sortedData = [...purchasedData].sort((a, b) => b.id - a.id);
+
   return (
     <div className="purchase-list-container">
       <h3>구매 내역</h3>
       <div className="purchased-lists">
-        {purchasedData.map((item) => (
+        {sortedData.map((item) => (
           <div key={item.id} className="purchased-item">
             <div>
               주문 번호:
