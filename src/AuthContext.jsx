@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import PropTypes from "prop-types";
 import { createContext, useContext, useState, useEffect } from "react";
 import { auth } from "../firebase-config";
@@ -25,13 +26,35 @@ export const AuthProvider = ({ children }) => {
           authUser.displayName,
           authUser.photoURL
         );
+
+        // 세션 스토리지에 사용자 정보 저장
+        sessionStorage.setItem(
+          "user",
+          JSON.stringify({
+            uid: authUser.uid,
+            email: authUser.email,
+            displayName: authUser.displayName,
+            photoURL: authUser.photoURL,
+          })
+        );
       } else {
         // 로그아웃한 경우
         setUser(null);
+        sessionStorage.removeItem("user");
       }
     });
 
-    return () => unsubscribe();
+    // 브라우저 탭 종료 시 세션 스토리지 데이터 삭제
+    const handleTabClose = () => {
+      sessionStorage.removeItem("user");
+    };
+
+    window.addEventListener("beforeunload", handleTabClose);
+
+    return () => {
+      unsubscribe();
+      window.removeEventListener("beforeunload", handleTabClose);
+    };
   }, []);
 
   return (
