@@ -14,7 +14,6 @@ import SignUpPage from "./pages/SignUp";
 import SignInPage from "./pages/SignIn";
 import ProductPage from "./pages/Product";
 import MyPage from "./pages/My";
-// import SearchPage from "./pages/Search";
 
 function App() {
   const { isMenuOpen } = useMenu();
@@ -35,7 +34,6 @@ function App() {
             </PrivateRoute>
           }
         />
-        {/* <Route path="/search" element={<SearchPage />} /> */}
         <Route path="/product-list/:type" element={<ProductList />} />
         <Route path="/product/:productId" element={<ProductPage />} />
       </Routes>
